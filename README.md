@@ -1,16 +1,13 @@
-# gourmet
+# Gourmet
 
-A new Flutter application.
+Aplicación para restaurantes
 
-## Getting Started
+## Proyecto final modelos 2
 
-This project is a starting point for a Flutter application.
+Integrantes:
 
-A few resources to get you started if this is your first Flutter project:
+- [Santiago Rios Valero - 20181020017)
+- [Diana Valentina Uscategui - Tobo 20172020063)
+- [Jorge Andres Bohorquez Castellanos - 20181020016)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+El proyecto consta de una arquitectura orientada a servicios los cuales seŕan cloud Firestore y Firebase Auth, tambien cuenta con su respectivo back y front.
