@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "471613533574",
+    "project_id": "gourmet-ed70a",
+    "storage_bucket": "gourmet-ed70a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471613533574:android:c6cbb79599b95c70e25007",
+        "android_client_info": {
+          "package_name": "app.com.gourmet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471613533574-svbojlvqfpqie1cul9la1l6gtdi39158.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.gourmet",
+            "certificate_hash": "c2754159b4779c12a5a555974c4154d8cff756ce"
+          }
+        },
+        {
+          "client_id": "471613533574-nbb78bi5u4k4agciglsuui8krp0mrl3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmH-kZDGt5VQBUwktI6MZXs905VdBiXLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471613533574-nbb78bi5u4k4agciglsuui8krp0mrl3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
