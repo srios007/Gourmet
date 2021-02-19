@@ -10,4 +10,4 @@ Integrantes:
 - [Diana Valentina Uscategui - Tobo 20172020063)
 - [Jorge Andres Bohorquez Castellanos - 20181020016)
 
-El proyecto consta de una arquitectura orientada a servicios los cuales seŕan cloud Firestore y Firebase Auth, tambien cuenta con su respectivo back y front.
+El proyecto consta de una arquitectura orientada a servicios, los cuales serán cloud Firestore y Firebase Auth, también cuenta con su respectivo back y front.
