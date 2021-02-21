@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 
 // ignore: must_be_immutable
 class ContainerRegistrar extends StatelessWidget {
@@ -62,21 +62,21 @@ class ContainerRegistrar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
             child: Text(
               title,
-              style: GoogleFonts.poppins(textStyle: kLabelRegistrar),
+              style: GoogleFonts.poppins(textStyle: Styles.kLabelRegistrar),
             ),
           ),
           Container(
             height: 56,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: kWhiteColor,
+              color: Palette.white,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                    color: kDividerColor,
+                    color: Palette.lightGray,
                     blurRadius: 3.0,
                     offset: Offset(0.2, 0.7))
               ],
-              borderRadius: kRadiusAll,
+              borderRadius: BorderRadius.circular(14),
             ),
             child: Row(
               children: <Widget>[
@@ -85,7 +85,7 @@ class ContainerRegistrar extends StatelessWidget {
                 ),
                 Icon(
                   icon,
-                  color: iconColor ?? kLabelColor,
+                  color: iconColor ?? Palette.gourmet,
                   size: 24.0,
                 ),
                 Padding(
@@ -102,9 +102,9 @@ class ContainerRegistrar extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color: kWhiteColor),
-                          borderRadius: kRadiusAll,
-                          color: kWhiteColor),
+                          border: Border.all(color: Palette.white),
+                          borderRadius: BorderRadius.circular(14),
+                          color: Palette.white),
                       width: MediaQuery.of(context).size.width * 0.69,
                       child: Padding(
                         padding: EdgeInsets.symmetric(vertical: 3),

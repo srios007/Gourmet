@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:gourmet/config/constantes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 
 class ContainerPerfil extends StatelessWidget {
 
@@ -19,7 +18,7 @@ class ContainerPerfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: kWhiteColor,
+      color: Palette.white,
       width: MediaQuery.of(context).size.width * 0.95,
       height: MediaQuery.of(context).size.height * 0.13,
       child: Column(
@@ -33,7 +32,7 @@ class ContainerPerfil extends StatelessWidget {
               Text(
                 principal,
                 style: GoogleFonts.poppins(
-                    textStyle: kLabelRegistrar
+                    textStyle: Styles.kLabelRegistrar
                 ),
               ),
             ],
@@ -45,15 +44,15 @@ class ContainerPerfil extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.07,
             width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
-              color: kWhiteColor,
+              color: Palette.white,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: kDividerColor,
+                  color: Palette.lightGray,
                   blurRadius: 3.0,
                   offset: Offset(0.2, 0.7)
                 )
               ],
-              borderRadius: kRadiusAll,
+              borderRadius: BorderRadius.circular(14),
             ),
             child: Row(
               children: <Widget>[
@@ -62,7 +61,7 @@ class ContainerPerfil extends StatelessWidget {
                 ),
                 IconTheme(
                   data: IconThemeData(
-                    color: kLabelColor,
+                    color: Palette.gourmet,
                   ),
                   child: ImageIcon(
                     AssetImage(
@@ -76,7 +75,7 @@ class ContainerPerfil extends StatelessWidget {
                 Container(
                   width: 1,
                   height: MediaQuery.of(context).size.height * 0.05,
-                  color: kDividerColor,
+                  color: Palette.lightGray,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.05,
@@ -87,9 +86,9 @@ class ContainerPerfil extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: kWhiteColor),
-                        borderRadius: kRadiusAll,
-                        color: kWhiteColor
+                        border: Border.all(color: Palette.white),
+                        borderRadius: BorderRadius.circular(14),
+                        color: Palette.white
                       ),
                       width: MediaQuery.of(context).size.width * 0.6,
                       child: Padding(
@@ -104,7 +103,7 @@ class ContainerPerfil extends StatelessWidget {
                                   title,
                                   textAlign: TextAlign.left,
                                   style: GoogleFonts.poppins(
-                                    textStyle: kLabelPerfil
+                                    textStyle: Styles.kLabelPerfil
                                   )
                                 ),
                               ],

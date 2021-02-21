@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 
 class ContainerIniciarSesion extends StatelessWidget {
   ContainerIniciarSesion(
@@ -55,7 +55,7 @@ class ContainerIniciarSesion extends StatelessWidget {
     return Container(
       height: 50,
       decoration: BoxDecoration(
-          borderRadius: kRadiusAll, border: Border.all(color: kWhiteColor)),
+          borderRadius: BorderRadius.circular(14), border: Border.all(color: Palette.white)),
       child: Center(
         child: TextFormField(
           key: key,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 
 class ContainerFiltro extends StatelessWidget {
   ContainerFiltro({
@@ -42,7 +42,7 @@ class ContainerFiltro extends StatelessWidget {
                   Text(
                     title,
                     style: GoogleFonts.poppins(
-                      textStyle: kTitlePerfil
+                      textStyle: Styles.kTitlePerfil
                     )
                   )
                 ],
@@ -57,7 +57,7 @@ class ContainerFiltro extends StatelessWidget {
                     child: Text(
                       subtitle,
                       style: GoogleFonts.poppins(
-                        textStyle: kSubTitlePerfil
+                        textStyle: Styles.kSubTitlePerfil
                       ),
                     ),
                   )
@@ -70,7 +70,7 @@ class ContainerFiltro extends StatelessWidget {
                 children: <Widget>[
 
                   Container(
-                    color: kWhiteColor,
+                    color: Palette.white,
                     width: MediaQuery.of(context).size.width * 0.97,
                     height: MediaQuery.of(context).size.height * 0.066,
                     child: Column(
@@ -79,15 +79,15 @@ class ContainerFiltro extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.066,
                           width: MediaQuery.of(context).size.width * 0.97,
                           decoration: BoxDecoration(
-                            color: kWhiteColor,
+                            color: Palette.white,
                             boxShadow: <BoxShadow>[
                               BoxShadow(
-                                  color: kDividerColor,
+                                  color: Palette.lightGray,
                                   blurRadius: 3.0,
                                   offset: Offset(0.2, 0.7)
                               )
                             ],
-                            borderRadius: kRadiusAll,
+                            borderRadius: BorderRadius.circular(14),
                           ),
                           child: Row(
                             children: <Widget>[
@@ -96,7 +96,7 @@ class ContainerFiltro extends StatelessWidget {
                               ),
                               IconTheme(
                                 data: IconThemeData(
-                                  color: kBlackColor.withOpacity(0.3),
+                                  color: Palette.black.withOpacity(0.3),
                                 ),
                                 child: ImageIcon(
                                     AssetImage(
@@ -110,7 +110,7 @@ class ContainerFiltro extends StatelessWidget {
                               Container(
                                 width: 1,
                                 height: MediaQuery.of(context).size.height * 0.05,
-                                color: kDividerColor,
+                                color: Palette.lightGray,
                               ),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.06,
@@ -125,7 +125,7 @@ class ContainerFiltro extends StatelessWidget {
                                       Text(
                                           menu,
                                           style: GoogleFonts.poppins(
-                                              textStyle: kOpacity
+                                              textStyle: Styles.kOpacity
                                           )
                                       ),
                                     ],
@@ -152,7 +152,7 @@ class ContainerFiltro extends StatelessWidget {
                     'Filtros rápidos',
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                            color: kBlackColor,
+                            color: Palette.black,
                             fontSize: 14,
                             fontWeight: FontWeight.w500
                         )
@@ -176,15 +176,15 @@ class ContainerFiltro extends StatelessWidget {
                       child: Container(
                           width: MediaQuery.of(context).size.width * 0.28,
                           decoration: BoxDecoration(
-                            color: kWhiteColor,
+                            color: Palette.white,
                             boxShadow: <BoxShadow>[
                               BoxShadow(
-                                  color: kDividerColor,
+                                  color: Palette.lightGray,
                                   blurRadius: 3.0,
                                   offset: Offset(0.2, 0.7)
                               )
                             ],
-                            borderRadius: kRadiusAll,
+                            borderRadius: BorderRadius.circular(14),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -195,7 +195,7 @@ class ContainerFiltro extends StatelessWidget {
                                   Text(
                                     filter1,
                                     style: GoogleFonts.poppins(
-                                        textStyle: kLabelTextStyle2
+                                        textStyle: Styles.kLabelTextStyle2
                                     ),
                                   ),
                                 ],
@@ -212,15 +212,15 @@ class ContainerFiltro extends StatelessWidget {
                       child: Container(
                           width: MediaQuery.of(context).size.width * 0.46,
                           decoration: BoxDecoration(
-                            color: kWhiteColor,
+                            color: Palette.white,
                             boxShadow: <BoxShadow>[
                               BoxShadow(
-                                  color: kDividerColor,
+                                  color: Palette.lightGray,
                                   blurRadius: 3.0,
                                   offset: Offset(0.2, 0.7)
                               )
                             ],
-                            borderRadius: kRadiusAll,
+                            borderRadius: BorderRadius.circular(14),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -231,7 +231,7 @@ class ContainerFiltro extends StatelessWidget {
                                   Text(
                                     filter2,
                                     style: GoogleFonts.poppins(
-                                        textStyle: kLabelTextStyle2
+                                        textStyle: Styles.kLabelTextStyle2
                                     ),
                                   ),
                                 ],
@@ -248,15 +248,15 @@ class ContainerFiltro extends StatelessWidget {
                       child: Container(
                           width: MediaQuery.of(context).size.width * 0.36,
                           decoration: BoxDecoration(
-                            color: kWhiteColor,
+                            color: Palette.white,
                             boxShadow: <BoxShadow>[
                               BoxShadow(
-                                  color: kDividerColor,
+                                  color: Palette.lightGray,
                                   blurRadius: 3.0,
                                   offset: Offset(0.2, 0.7)
                               )
                             ],
-                            borderRadius: kRadiusAll,
+                            borderRadius: BorderRadius.circular(14),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -267,7 +267,7 @@ class ContainerFiltro extends StatelessWidget {
                                   Text(
                                     filter3,
                                     style: GoogleFonts.poppins(
-                                        textStyle: kLabelTextStyle2
+                                        textStyle: Styles.kLabelTextStyle2
                                     ),
                                   ),
                                 ],
@@ -281,8 +281,8 @@ class ContainerFiltro extends StatelessWidget {
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.15,
                         decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          borderRadius: kRadiusAll,
+                          color: Palette.white,
+                          borderRadius: BorderRadius.circular(14),
                         ),
                         child: Image(
                           fit: BoxFit.contain,
@@ -304,7 +304,7 @@ class ContainerFiltro extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     height: height,
-                    color: kBlackColor.withOpacity(0.05),
+                    color: Palette.black.withOpacity(0.05),
                   )
                 ],
               ),

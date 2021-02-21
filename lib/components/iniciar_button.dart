@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../config/constantes.dart';
+import 'package:gourmet/config/config.dart';
 
 class IniciarButton extends StatelessWidget {
   IniciarButton({
@@ -31,12 +30,12 @@ class IniciarButton extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: Colors.white,
+              color: Palette.white,
               width: 2
             ),
             gradient: canPush
                 ? LinearGradient(
-                    colors: [Colors.white, Colors.white],
+                    colors: [Palette.white, Palette.white],
                     stops: [0.5, 0.8],
                     begin: FractionalOffset.centerLeft,
                     end: FractionalOffset.centerRight,
@@ -54,7 +53,7 @@ class IniciarButton extends StatelessWidget {
                     height: 15,
                     width: 15,
                     child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(kLabelColor),
+                      valueColor: AlwaysStoppedAnimation<Color>(Palette.gourmet),
                       strokeWidth: 3,
                     ),
                   )
@@ -63,8 +62,8 @@ class IniciarButton extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       color: canPush
-                        ?kLabelColor
-                        :Colors.white
+                        ?Palette.gourmet
+                        :Palette.white
                     ),
                   ),
             onPressed: () {

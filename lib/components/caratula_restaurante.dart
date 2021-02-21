@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 
 class Caratula extends StatelessWidget {
   Caratula({
@@ -28,8 +29,7 @@ class Caratula extends StatelessWidget {
               child: Container(
                   height:  MediaQuery.of(context).size.height * 0.225,
                   decoration: BoxDecoration(
-                    borderRadius: kRadiusAll,
-
+                    borderRadius: BorderRadius.circular(14),
                   ),
                   child: Image.asset('imagenes/$image',
                     fit: BoxFit.fill,)
@@ -50,7 +50,7 @@ class Caratula extends StatelessWidget {
                 child: Text(
                   title,
                   style: GoogleFonts.poppins(
-                      textStyle: kCaratulaStyle
+                      textStyle: Styles.kCaratulaStyle
                   ),
                 ),
               ),
@@ -73,7 +73,7 @@ class Caratula extends StatelessWidget {
                 ),
                 IconTheme(
                   data: IconThemeData(
-                    color: kYellowColor,
+                    color: Palette.yellowDark,
                     size: 18
                   ),
                   child: ImageIcon(
@@ -86,7 +86,7 @@ class Caratula extends StatelessWidget {
                   calificacion,
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      color: kYellowColor,
+                        color: Palette.yellowDark,
                       fontSize: 14,
                       fontWeight: FontWeight.w400
                     ),
@@ -114,7 +114,7 @@ class Caratula extends StatelessWidget {
                       '$resena reseñas',
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                            color: kWhiteColor,
+                            color: Palette.white,
                             fontSize: 13,
                             fontWeight: FontWeight.w200
                         ),
