@@ -3,17 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:gourmet/components/gourmet_button.dart';
-import 'package:gourmet/config/config.dart';
-import 'package:gourmet/config/constants/user_constants.dart';
-import 'package:gourmet/config/firebase/auth/authentication.dart';
-import 'package:gourmet/config/constantes.dart';
+import 'package:gourmet/components/components.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gourmet/components/catapultaScrollView.dart';
-import 'package:gourmet/components/container_registrar.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:flutter/services.dart';
-
 import '../home_screen.dart';
 
 class CrearCuenta extends StatefulWidget {

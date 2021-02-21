@@ -3,18 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
-import 'package:gourmet/components/gourmet_button.dart';
+import 'package:gourmet/components/components.dart';
 import 'package:gourmet/config/config.dart';
-import 'package:gourmet/config/constants/user_constants.dart';
-import 'package:gourmet/config/firebase/auth/authentication.dart';
 import 'package:gourmet/screens/registro/crear_cuenta.dart';
 import 'package:gourmet/screens/home_screen.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gourmet/components/catapultaScrollView.dart';
-import 'package:gourmet/components/container_registrar.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class IniciarSesion extends StatefulWidget {
   @override
@@ -22,7 +16,6 @@ class IniciarSesion extends StatefulWidget {
 }
 
 class _IniciarSesionState extends State<IniciarSesion> {
-  PanelController _pc = PanelController();
 
   /// Variables inicio de sesión
   String email = "";
