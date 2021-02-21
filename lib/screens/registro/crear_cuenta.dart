@@ -8,7 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/config/config.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:flutter/services.dart';
-import '../home_screen.dart';
+
+import '../screens.dart';
 
 class CrearCuenta extends StatefulWidget {
   @override
@@ -41,7 +42,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     CupertinoNavigationBarBackButton(
-                      color: kLabelColor,
+                      color: Palette.gourmet,
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -55,11 +56,11 @@ class _CrearCuentaState extends State<CrearCuenta> {
                 Text(
                   'Bienvenido a Gourmet',
                   style:
-                      GoogleFonts.poppins(textStyle: kTituloRegistrarUsuario),
+                      GoogleFonts.poppins(textStyle: Styles.kTituloRegistrarUsuario),
                 ),
                 Text('Regístrate',
                     style: GoogleFonts.poppins(
-                        textStyle: kSubTituloRegistrarUsuario)),
+                        textStyle: Styles.kSubTituloRegistrarUsuario)),
                 const SizedBox(height: 16),
                 ContainerRegistrar(
                   title: "Nombre Completo",
@@ -130,7 +131,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                                     )),
                                 onPressed: () => Navigator.pop(context),
                                 width: 120,
-                                color: kLabelColor,
+                                color: Palette.gourmet,
                               )
                             ]).show();
                       }

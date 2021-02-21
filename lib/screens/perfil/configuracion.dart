@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:gourmet/config/constants/user_constants.dart';
 import 'package:gourmet/config/firebase/auth/authentication.dart';
 import 'package:gourmet/config/firebase/auth/handles.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:gourmet/components/catapultaScrollView.dart';
 import 'package:gourmet/model/users/user_model.dart';
 import 'package:gourmet/screens/registro/iniciar_sesion.dart';
@@ -21,18 +21,18 @@ class _ConfiguracionState extends State<Configuracion> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: kWhiteColor,
+        backgroundColor: Palette.white,
         centerTitle: true,
         elevation: 0,
         leading: CupertinoNavigationBarBackButton(
-          color: kLabelColor,
+          color: Palette.gourmet,
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         title: Text(
           'Configuración',
-          style: kTituloRegistrarUsuario,
+          style: Styles.kTituloRegistrarUsuario,
         ),
       ),
       body: CatapultaScrollView(
@@ -51,7 +51,7 @@ class _ConfiguracionState extends State<Configuracion> {
                 },
                 child: Text(
                   'Cerrar Sesión',
-                  style: GoogleFonts.poppins(textStyle: kLabelCerrarSesion),
+                  style: GoogleFonts.poppins(textStyle: Styles.kLabelCerrarSesion),
                 ),
               ),
             ),

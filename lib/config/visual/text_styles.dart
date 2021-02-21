@@ -1,201 +1,118 @@
- import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:gourmet/config/visual/palette.dart';
 
 class Styles {
-  /// BOTONES
-  static TextStyle btn = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w700,
-    color: Palette.white,
+  static  TextStyle kTitleTextStyle = TextStyle(
+      color: Palette.gourmet,
+      fontSize: 13.0,
+      fontWeight: FontWeight.w700
   );
-  static TextStyle btnPromoter = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-    color: Palette.black,
+  static TextStyle kLabelTextStyle = TextStyle(
+      color: Palette.gourmet,
+      fontSize: 13.0,
+      fontWeight: FontWeight.w400
   );
-  static TextStyle txtBtn(
-          {bool isEnabled = true,
-          double size = 15,
-          FontWeight fontWeight = FontWeight.w600}) =>
-      TextStyle(
-        fontSize: size,
-        fontWeight: fontWeight,
-        color: isEnabled ? Palette.cumbiaDark : Palette.black.withOpacity(0.25),
-      );
-  static TextStyle navBtn(
-          {bool isEnabled = true, double size = 17, Color color}) =>
-      TextStyle(
-        fontSize: size,
-        color: color == null
-            ? isEnabled
-                ? Palette.cumbiaDark
-                : Palette.black.withOpacity(0.25)
-            : color,
-      );
-
-  /// LBLS
-  // Título grande de cada pestaña
-  static TextStyle largeTitleLbl = TextStyle(
-    fontSize: 32,
-    fontWeight: FontWeight.w800,
-    letterSpacing: -1.2,
-    color: Palette.cumbiaLight,
-  );
-  static TextStyle titleLbl = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
-    color: Palette.black,
-  );
-  // Título de ShortMessageView
-  static TextStyle shortMessageTitleLbl = TextStyle(
-    fontSize: 24,
-    letterSpacing: -0.5,
-    fontWeight: FontWeight.w600,
-    color: Palette.black,
-  );
-  // Texto de ShortMessageView
-  static TextStyle shortMessageLbl({double size = 16, Color color}) =>
-      TextStyle(
-        fontSize: size,
-        color: color ?? Palette.black.withOpacity(0.5),
-      );
-
-  static TextStyle secondaryLbl = TextStyle(
-    fontSize: 15,
-    color: Palette.black.withOpacity(0.5),
-    fontWeight: FontWeight.w400,
+  static TextStyle kLabelTextStyle2 = TextStyle(
+      color: Palette.gourmet,
+      fontSize: 15.0,
+      fontWeight: FontWeight.w400
   );
 
-  static TextStyle paragraphLbl = TextStyle(
-    fontSize: 13,
-    color: Palette.black.withOpacity(0.5),
-    fontWeight: FontWeight.w400,
+  static TextStyle kLabelPrincipalTitleTextStyle = TextStyle(
+      color:   Palette.white,
+      fontSize: 28,
+      fontWeight: FontWeight.bold
   );
 
-  // Nombre de perfil
-  static TextStyle perfilNameLbl = TextStyle(
-    fontSize: 22,
-    fontWeight: FontWeight.w600,
-    letterSpacing: -0.5,
-    color: Palette.black,
-  );
-  // Títulos de las pestañas
-  static TextStyle navTitleLbl = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w700,
-    color: Palette.black,
-  );
-
-  /// TXT
-  // Título de TxtField
-  static TextStyle txtTitleLbl = TextStyle(
-    fontSize: 15,
-    color: Palette.black.withOpacity(0.75),
-    fontWeight: FontWeight.w600,
-  );
-  // Texto de campos de texto
-  static TextStyle txtTextLbl(
-          {Color color = Palette.black,
-          double size = 16,
-          FontWeight weight = FontWeight.w500}) =>
-      TextStyle(
-        fontSize: size,
-        color: color,
-        fontWeight: weight,
-      );
-  // Placeholder de campos de texto
-  static TextStyle placeholderLbl = TextStyle(
-    fontSize: 16,
-    color: Palette.black.withOpacity(0.35),
-  );
-  // Placeholder live
-  static TextStyle placeholderLiveLbl = TextStyle(
-    fontSize: 16,
-    color: Palette.white.withOpacity(0.5),
-  );
-  // Mensaje de verificación de Txts
-  static TextStyle validationLbl = TextStyle(
-    fontSize: 14,
-    color: Palette.red,
-  );
-
-  // Configuración Lbl
-  static TextStyle configLbl = TextStyle(
-    fontSize: 16,
-    color: Palette.black.withOpacity(0.85),
-  );
-
-  // live lbl
-  static TextStyle liveLbl = TextStyle(
-      fontSize: 12, fontWeight: FontWeight.w400, color: Palette.white);
-  // Descripción del live
-  static TextStyle descriptionLiveLbl = TextStyle(
-      fontSize: 12, fontWeight: FontWeight.w300, color: Palette.black);
-
-  // Espectadores del live
-  static TextStyle audienceLiveLbl = TextStyle(
-      fontSize: 11, fontWeight: FontWeight.w300, color: Palette.white);
-
-  // Título del live
-  static TextStyle tittleLiveLbl = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
-    color: Palette.black,
-  );
-
-  // live tiendas lbl
-  static TextStyle liveShopLbl = TextStyle(
-      fontSize: 12,
+  static TextStyle kUnderlineLabelLogin = TextStyle(
+      fontSize: 14,
       fontWeight: FontWeight.w300,
-      color: Palette.black.withOpacity(0.7));
-  // live del home lbl
-  static TextStyle liveBasicLbl = TextStyle(
-      color: Palette.cumbiaDark, fontSize: 10.0, fontWeight: FontWeight.bold);
-
-  // titulo de permisos
-  static TextStyle permisosTitleLbl = TextStyle(
-    fontSize: 28,
-    fontWeight: FontWeight.bold,
-    color: Palette.black,
+      color: Palette.gourmet
   );
 
-  // en vivo Streamer page
-  static TextStyle labelLive = TextStyle(
-    fontSize: 13,
+  static TextStyle kLabelTextFormFieldStyle = TextStyle(
+      fontWeight: FontWeight.w300,
+      color: Palette.white);
+
+  static TextStyle kTituloRegistrarUsuario = TextStyle(
+    color: Palette.gourmet,
+    fontSize: 17,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle kSubTituloRegistrarUsuario = TextStyle(
+    color: Palette.gourmet,
+    fontSize: 17,
     fontWeight: FontWeight.w400,
-    color: Palette.white,
-  );
-  // en vivo usuarios
-  static TextStyle usersLive = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w300,
-    color: Palette.white,
   );
 
-  // título live
-  static TextStyle tittleLive = TextStyle(
-      fontSize: 26,
-      fontWeight: FontWeight.bold,
+  static TextStyle kLabelRegistrar = TextStyle(
+      color: Palette.black,
+      fontSize: 16,
+      fontWeight: FontWeight.w400
+  );
+
+  static TextStyle kUnderlineLabel = TextStyle(
+      decoration: TextDecoration.underline,
+      color: Palette.black,
+      fontSize: 10
+  );
+
+  static TextStyle kOpacity = TextStyle(
+      color: Palette.black.withOpacity(0.3),
+      fontSize: 15
+  );
+
+  static TextStyle kLabelPerfil = TextStyle(
+      color: Palette.black,
+      fontSize: 15,
+      fontWeight: FontWeight.w400
+  );
+
+  static TextStyle kLabelCerrarSesion = TextStyle(
+      color: Palette.red,
+      fontSize: 15,
+      fontWeight: FontWeight.w500
+  );
+
+  static TextStyle kCaratulaStyle = TextStyle(
       color: Palette.white,
-      letterSpacing: -1.2);
-
-  // label live
-  static TextStyle labelLivestream =
-      TextStyle(fontSize: 14, color: Palette.white.withOpacity(0.75));
-
-  static TextStyle liveStyle({double size = 12, Color color, var fontWeight}) =>
-      TextStyle(fontSize: size, color: color, fontWeight: fontWeight);
-
-  static TextStyle italicbl({double size = 14, Color color, var fontStyle}) =>
-      TextStyle(
-          fontSize: size,
-          color: color ?? Palette.black.withOpacity(0.5),
-          fontStyle: fontStyle
+      fontSize: 16,
+      fontWeight: FontWeight.w500
   );
-  static TextStyle labelPromoter = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.bold,
-    color: Palette.cumbiaDark,
+
+  static TextStyle kPremiumStyle = TextStyle(
+      color: Palette.black,
+      fontSize: 16,
+      fontWeight: FontWeight.w500
+  );
+
+  static TextStyle kPremiumStyle2 = TextStyle(
+      color: Palette.black,
+      fontSize: 14
+  );
+
+  static TextStyle kTituloPremium = TextStyle(
+    color: Palette.gourmet,
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kPremiumStyle3 = TextStyle(
+      color: Palette.black.withOpacity(0.5),
+      fontWeight: FontWeight.w600,
+      fontSize: 16
+  );
+
+  static TextStyle kTitlePerfil = TextStyle(
+      color: Palette.black,
+      fontSize: 20,
+      fontWeight: FontWeight.w500
+  );
+
+  static TextStyle kSubTitlePerfil = TextStyle(
+    color: Palette.black.withOpacity(0.3),
+    fontSize: 12,
   );
 
 }

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
-
-import '../../config/constantes.dart';
+import 'package:gourmet/config/config.dart';
 import '../registro/iniciar_sesion.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: kWhiteColor,
+      color: Palette.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

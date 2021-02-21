@@ -5,10 +5,10 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:gourmet/components/components.dart';
 import 'package:gourmet/config/config.dart';
-import 'package:gourmet/screens/registro/crear_cuenta.dart';
-import 'package:gourmet/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../screens.dart';
 
 class IniciarSesion extends StatefulWidget {
   @override
@@ -46,15 +46,15 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 Text(
                   'Bienvenido a Gourmet',
                   style:
-                  GoogleFonts.poppins(textStyle: kTituloRegistrarUsuario),
+                  GoogleFonts.poppins(textStyle: Styles.kTituloRegistrarUsuario),
                 ),
                 Text('Inicia sesión',
                     style: GoogleFonts.poppins(
-                        textStyle: kSubTituloRegistrarUsuario)),
+                        textStyle: Styles.kSubTituloRegistrarUsuario)),
                 const SizedBox(height: 16),
                 Text('Iniciar Sesión',
                     style: GoogleFonts.poppins(
-                        textStyle: kLabelPrincipalTitleTextStyle)),
+                        textStyle: Styles.kLabelPrincipalTitleTextStyle)),
                 ContainerRegistrar(
                   title: "E-mail",
                   icon: Icons.email_outlined,
@@ -98,7 +98,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                                     )                                ),
                                 onPressed: () => Navigator.pop(context),
                                 width: 120,
-                                color: kLabelColor,
+                                color: Palette.gourmet,
                               )
                             ]).show();
                       }
@@ -125,7 +125,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         textStyle: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
-                            color: kLabelColor
+                            color: Palette.gourmet
                         )
                       ),
                       children: <TextSpan>[
@@ -135,15 +135,13 @@ class _IniciarSesionState extends State<IniciarSesion> {
                               textStyle: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
-                                  color: kLabelColor
+                                  color: Palette.gourmet
                               )
-                          ),                        ),
-
+                          ),
+                        ),
                       ],
                     ),
                   )
-
-
                 ),
               ],
             ),

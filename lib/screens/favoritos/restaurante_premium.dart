@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gourmet/components/catapultaScrollView.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:gourmet/screens/home_screen.dart';
 import 'package:gourmet/components/fade_route.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
 
@@ -50,7 +50,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
           elevation: 0.2,
           bottomOpacity: 1,
           automaticallyImplyLeading: false,
-          backgroundColor: kWhiteColor,
+          backgroundColor: Palette.white,
           centerTitle: true,
           title: Stack(
             children: <Widget>[
@@ -60,7 +60,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                   Text(
                     'Restaurante Premium',
                     style: GoogleFonts.poppins(
-                        textStyle: kTituloPremium
+                        textStyle: Styles.kTituloPremium
                     ),
                   ),
                 ],
@@ -111,10 +111,10 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                     autoplayDuration: Duration(seconds:0),
                     dotSize: 4.0,
                     dotSpacing: 15.0,
-                    dotColor: kWhiteColor,
+                    dotColor: Palette.white,
                     indicatorBgPadding: 5.0,
                     dotBgColor: Colors.transparent,
-                    dotIncreasedColor: kLabelColor,
+                    dotIncreasedColor: Palette.gourmet,
                     moveIndicatorFromBottom: 180.0,
                     noRadiusForIndicator: true,
                     autoplay: false,
@@ -125,8 +125,8 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
             ),
           ),
           bottom: TabBar(
-            unselectedLabelColor: kBlackColor.withOpacity(0.3),
-            labelColor: kLabelColor,
+            unselectedLabelColor: Palette.black.withOpacity(0.3),
+            labelColor: Palette.gourmet,
             tabs: [
               Tab(
                 child: Column(
@@ -170,7 +170,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
               ),
             ],
             controller: _tabController,
-            indicatorColor: kLabelColor,
+            indicatorColor: Palette.gourmet,
             indicatorSize: TabBarIndicatorSize.tab,),
         ),
       ),
@@ -186,7 +186,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                     children: <Widget>[
                       Container(
                         height: MediaQuery.of(context).size.height * 0.5,
-                        color: kWhiteColor,
+                        color: Palette.white,
                         child: Column(
 
                           children: <Widget>[
@@ -197,7 +197,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Horario de apertura',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle
+                                        textStyle: Styles.kPremiumStyle
                                     )
                                   ),
                                 ],
@@ -210,7 +210,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Abierto todos los días',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle2
+                                        textStyle: Styles.kPremiumStyle2
                                     )
                                   ),
                                 ],
@@ -223,7 +223,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Cómo llegar al restaurante',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle
+                                        textStyle: Styles.kPremiumStyle
                                     )
                                   ),
                                 ],
@@ -236,7 +236,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Calle 24a #57-60',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle2
+                                        textStyle: Styles.kPremiumStyle2
                                     )
                                   ),
                                 ],
@@ -250,7 +250,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Indicaciones para llegar al lugar',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle
+                                        textStyle: Styles.kPremiumStyle
                                     )
                                   ),
                                 ],
@@ -263,7 +263,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'TEUSAQUILLO',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle2
+                                        textStyle: Styles.kPremiumStyle2
                                     )
                                   ),
                                 ],
@@ -284,7 +284,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                     children: <Widget>[
                       Container(
                         height: MediaQuery.of(context).size.height * 0.5,
-                        color: kWhiteColor,
+                        color: Palette.white,
                         child: Column(
                           children: <Widget>[
                             Padding(
@@ -294,7 +294,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Recomendaciones del chef',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle
+                                        textStyle: Styles.kPremiumStyle
                                     )
                                   ),
                                 ],
@@ -307,7 +307,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Margarita',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle2
+                                        textStyle: Styles.kPremiumStyle2
                                     )
                                   ),
                                 ],
@@ -321,7 +321,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     '\$36.000',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle2
+                                        textStyle: Styles.kPremiumStyle2
                                     )
                                   ),
                                 ],
@@ -335,7 +335,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     'Precio promedio',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle
+                                        textStyle: Styles.kPremiumStyle
                                     )
                                   ),
                                 ],
@@ -348,7 +348,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   Text(
                                     '\$60.000',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle2
+                                        textStyle: Styles.kPremiumStyle2
                                     )
                                   ),
                                 ],
@@ -360,7 +360,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                 'Ver menús a la carta y menús fijos',
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
-                                    color: kLabelColor,
+                                    color: Palette.gourmet,
                                     fontSize: 15
                                   )
                                 ),
@@ -381,7 +381,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                     children: <Widget>[
                       Container(
                         height: MediaQuery.of(context).size.height * 0.5,
-                        color: kWhiteColor,
+                        color: Palette.white,
                         child: Column(
                           children: <Widget>[
                             Row(
@@ -398,7 +398,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                             '4.0',
                                             style: GoogleFonts.poppins(
                                               textStyle: TextStyle(
-                                                color: kLabelColor,
+                                                color: Palette.gourmet,
                                                 fontSize: 60,
                                                 fontWeight: FontWeight.bold
                                               )
@@ -410,7 +410,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                         child: Text(
                                           'de 5',
                                           style: GoogleFonts.poppins(
-                                            textStyle: kPremiumStyle3
+                                            textStyle: Styles.kPremiumStyle3
                                           ),
                                         ),
                                       )
@@ -439,7 +439,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                                         child: Text(
                                                           'Comida',
                                                           style: GoogleFonts.poppins(
-                                                            textStyle: kPremiumStyle3
+                                                            textStyle: Styles.kPremiumStyle3
                                                           ),
                                                         ),
                                                       ),
@@ -448,7 +448,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                                         child: Text(
                                                           'Servicio',
                                                           style: GoogleFonts.poppins(
-                                                            textStyle: kPremiumStyle3
+                                                            textStyle: Styles.kPremiumStyle3
                                                           ),
                                                         ),
                                                       ),
@@ -457,7 +457,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                                         child: Text(
                                                           'Ambiente',
                                                           style: GoogleFonts.poppins(
-                                                            textStyle: kPremiumStyle3
+                                                            textStyle: Styles.kPremiumStyle3
                                                           ),
                                                         ),
                                                       ),
@@ -560,7 +560,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                   child: Text(
                                     '139 reseñas',
                                     style: GoogleFonts.poppins(
-                                        textStyle: kPremiumStyle3
+                                        textStyle: Styles.kPremiumStyle3
                                     )
                                   ),
                                 )
@@ -574,7 +574,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                 nextLabel();
                               },
                               child: Container(
-                                color: kWhiteColor,
+                                color: Palette.white,
                                 height: 100,
                                 child: Padding(
                                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -582,15 +582,15 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                     height: 56,
                                     width: 359,
                                     decoration: BoxDecoration(
-                                      color: kWhiteColor,
+                                      color: Palette.white,
                                       boxShadow: <BoxShadow>[
                                         BoxShadow(
-                                          color: kDividerColor,
+                                          color: Palette.lightGray,
                                           blurRadius: 3.0,
                                           offset: Offset(0.2, 0.7)
                                         )
                                       ],
-                                      borderRadius: kRadiusAll,
+                                      borderRadius: BorderRadius.circular(14),
                                     ),
                                     child: Column(
                                       children: <Widget>[
@@ -614,7 +614,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                               child: Text(
                                                 'Hace tres horas',
                                                 style: GoogleFonts.poppins(
-                                                  textStyle: kPremiumStyle3
+                                                  textStyle: Styles.kPremiumStyle3
                                                 )
                                               ),
                                             ),
@@ -626,7 +626,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                               padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                                               child: IconTheme(
                                                 data: IconThemeData(
-                                                  color: kYellowColor2,
+                                                  color: Palette.yellowLight,
                                                   size: 18
                                                 ),
                                                 child: ImageIcon(
@@ -638,7 +638,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                             ),
                                             IconTheme(
                                               data: IconThemeData(
-                                                color: kYellowColor2,
+                                                color: Palette.yellowLight,
                                                 size: 18
                                               ),
                                               child: ImageIcon(
@@ -649,7 +649,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                             ),
                                             IconTheme(
                                               data: IconThemeData(
-                                                color: kYellowColor2,
+                                                  color: Palette.yellowLight,
                                                 size: 18
                                               ),
                                               child: ImageIcon(
@@ -660,7 +660,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                             ),
                                             IconTheme(
                                               data: IconThemeData(
-                                                color: kYellowColor2,
+                                                  color: Palette.yellowLight,
                                                 size: 18
                                               ),
                                               child: ImageIcon(
@@ -671,7 +671,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                             ),
                                             IconTheme(
                                               data: IconThemeData(
-                                                color: kYellowColor2,
+                                                  color: Palette.yellowLight,
                                                 size: 18
                                               ),
                                               child: ImageIcon(
@@ -690,7 +690,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                                               child: Text(
                                                 resena,
                                                 style: GoogleFonts.poppins(
-                                                  textStyle: kPremiumStyle2
+                                                  textStyle: Styles.kPremiumStyle2
                                                 ),
                                               ),
                                             ),
@@ -719,21 +719,21 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
               children: <Widget>[
                 Container(
                   height: MediaQuery.of(context).size.height * 0.1,
-                  color: kWhiteColor,
+                  color: Palette.white,
                   child: Center(
                     child: Container(
                       width: 296,
                       height: 63,
                       decoration: BoxDecoration(
-                        borderRadius: kRadiusAll,
-                        color: kLabelColor
+                        borderRadius: BorderRadius.circular(14),
+                        color: Palette.gourmet
                       ),
                       child: Center(
                         child: Text(
                           "Reservar",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              color: kWhiteColor,
+                              color: Palette.white,
                               fontSize: 15,
                               fontWeight: FontWeight.w400
                             )

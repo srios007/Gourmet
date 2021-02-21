@@ -85,7 +85,7 @@ class ContainerRegistrar extends StatelessWidget {
                 ),
                 Icon(
                   icon,
-                  color: kLabelColor,
+                  color: iconColor ?? kLabelColor,
                   size: 24.0,
                 ),
                 Padding(

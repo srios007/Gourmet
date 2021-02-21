@@ -17,3 +17,6 @@ export 'registro/iniciar_sesion.dart';
 /// SPLASH
 export 'splash/splashScreen.dart';
 
+///
+export 'home_screen.dart';
+

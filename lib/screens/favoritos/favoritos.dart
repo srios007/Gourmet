@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:gourmet/screens/favoritos/restaurante_premium.dart';
 import 'package:gourmet/components/fade_route.dart';
-import 'package:gourmet/config/constantes.dart';
 
 class Favoritos extends StatefulWidget {
   @override
@@ -23,14 +23,14 @@ class _FavoritosState extends State<Favoritos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kWhiteColor,
+      backgroundColor: Palette.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: kWhiteColor,
+        backgroundColor: Palette.white,
         centerTitle: true,
         title: Text(
           'Favoritos',
-          style: kTituloRegistrarUsuario,
+          style: Styles.kTituloRegistrarUsuario,
         ),
         elevation: 1,
       ),
@@ -47,7 +47,7 @@ class _FavoritosState extends State<Favoritos> {
                     'Restaurante Premium',
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        color: kBlackColor,
+                        color: Palette.black,
                         fontSize: 18,
                         fontWeight: FontWeight.w400
                       )
@@ -74,7 +74,7 @@ class _FavoritosState extends State<Favoritos> {
                               width: MediaQuery.of(context).size.width,
                               height: 143,
                               decoration: BoxDecoration(
-                                borderRadius: kRadiusAll,
+                                borderRadius: BorderRadius.circular(14),
                               ),
                               child: Image.asset('imagenes/capitalino.png',
                                 fit: BoxFit.fill,)
@@ -95,7 +95,7 @@ class _FavoritosState extends State<Favoritos> {
                           child: Text(
                             'Capitalino Restaurant',
                             style: GoogleFonts.poppins(
-                                textStyle: kCaratulaStyle
+                                textStyle: Styles.kCaratulaStyle
                             ),
                           ),
                         ),
@@ -118,7 +118,7 @@ class _FavoritosState extends State<Favoritos> {
                           ),
                           IconTheme(
                             data: IconThemeData(
-                                color: kYellowColor,
+                                color: Palette.yellowDark,
                                 size: 18
                             ),
                             child: ImageIcon(
@@ -131,7 +131,7 @@ class _FavoritosState extends State<Favoritos> {
                               '4,0',
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                    color: kYellowColor,
+                                    color: Palette.yellowDark,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400
                                 ),
@@ -157,7 +157,7 @@ class _FavoritosState extends State<Favoritos> {
                               '139 reseñas',
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                    color: kWhiteColor,
+                                    color: Palette.white,
                                     fontSize: 13,
                                     fontWeight: FontWeight.w200
                                 ),

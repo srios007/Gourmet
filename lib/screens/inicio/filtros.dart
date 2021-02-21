@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:gourmet/screens/home_screen.dart';
 import 'package:gourmet/components/filtro_container.dart';
 import 'package:gourmet/components/fade_route.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:gourmet/components/catapultaScrollView.dart';
 
 
@@ -29,7 +29,7 @@ class _FiltrosState extends State<Filtros> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: kWhiteColor,
+        backgroundColor: Palette.white,
         centerTitle: true,
         title: Stack(
           children: <Widget>[
@@ -38,7 +38,7 @@ class _FiltrosState extends State<Filtros> {
               children: <Widget>[
                 Text(
                   'Filtros',
-                  style: kTituloRegistrarUsuario,
+                  style: Styles.kTituloRegistrarUsuario,
                 ),
               ],
             ),
@@ -75,7 +75,7 @@ class _FiltrosState extends State<Filtros> {
         child: Container(
           height: MediaQuery.of(context).size.height * 1.2,
           width: MediaQuery.of(context).size.width,
-          color: kWhiteColor,
+          color: Palette.white,
           child: Column(
             children: <Widget>[
               ContainerFiltro(
@@ -113,8 +113,8 @@ class _FiltrosState extends State<Filtros> {
                   width: MediaQuery.of(context).size.width * 0.75,
                   height: MediaQuery.of(context).size.height * 0.07,
                   decoration: BoxDecoration(
-                    borderRadius: kRadiusAll,
-                    border: Border.all(color: kLabelColor)
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: Palette.gourmet)
                   ),
                   child: Center(
                     child: GestureDetector(
@@ -125,7 +125,7 @@ class _FiltrosState extends State<Filtros> {
                         "Actualizar",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            color: kLabelColor,
+                            color: Palette.gourmet,
                             fontSize: 15,
                             fontWeight: FontWeight.w400
                           )

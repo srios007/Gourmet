@@ -7,7 +7,6 @@ export 'firebase/references.dart';
 /// VISUAL
 export 'visual/palette.dart';
 export 'visual/text_styles.dart';
-export 'constantes.dart';
 
 /// CONSTANTS
 export 'constants/support_constants.dart';

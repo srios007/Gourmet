@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Caratula extends StatelessWidget {

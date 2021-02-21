@@ -3,7 +3,7 @@ import 'package:gourmet/components/catapultaScrollView.dart';
 import 'package:gourmet/components/caratula_restaurante.dart';
 import 'package:gourmet/components/fade_route.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gourmet/config/constantes.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:gourmet/screens/favoritos/restaurante_premium.dart';
 import 'package:gourmet/screens/inicio/filtros.dart';
 
@@ -39,13 +39,13 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
           automaticallyImplyLeading: false,
           elevation: 0.2,
           bottomOpacity: 1,
-          backgroundColor: kWhiteColor,
+          backgroundColor: Palette.white,
           centerTitle: true,
           title: Text(
               'YOURMET',
               style: GoogleFonts.poppins(
                 textStyle :TextStyle(
-                    color: kBlackColor,
+                    color: Palette.black,
                     fontSize: 25,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 2
@@ -58,7 +58,6 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
                 height: MediaQuery.of(context).size.height * 0.07,
               ),
               Container(
-                color: kWhiteColor,
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.066,
                 child: Column(
@@ -67,15 +66,14 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
                       height: MediaQuery.of(context).size.height * 0.066,
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
-                        color: kWhiteColor,
                           boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: kDividerColor,
+                              color: Palette.lightGray,
                               blurRadius: 3.0,
                               offset: Offset(0.2, 0.7)
                           )
                         ],
-                        borderRadius: kRadiusAll,
+                        borderRadius: BorderRadius.circular(14),
                       ),
                       child: Row(
                         children: <Widget>[
@@ -84,7 +82,7 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
                           ),
                           IconTheme(
                             data: IconThemeData(
-                              color: kBlackColor.withOpacity(0.3),
+                              color: Palette.black.withOpacity(0.3),
                             ),
                             child: ImageIcon(
                                 AssetImage(
@@ -98,7 +96,7 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
                           Container(
                             width: 1,
                             height: MediaQuery.of(context).size.height * 0.05,
-                            color: kDividerColor,
+                            color: Palette.lightGray,
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.045,
@@ -117,7 +115,7 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
                                       child: Text(
                                           'Buscar restaurante',
                                           style: GoogleFonts.poppins(
-                                              textStyle: kOpacity
+                                              textStyle: Styles.kOpacity
                                           )
                                       ),
                                     ),
@@ -135,7 +133,7 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
                             },
                             child: IconTheme(
                               data: IconThemeData(
-                                color: kLabelColor,
+                                color: Palette.gourmet,
                               ),
                               child: ImageIcon(
                                 AssetImage(
@@ -154,8 +152,8 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
             ],
           ),
           bottom: TabBar(
-            unselectedLabelColor: kBlackColor.withOpacity(0.3),
-            labelColor: kLabelColor,
+            unselectedLabelColor: Palette.black.withOpacity(0.3),
+            labelColor: Palette.gourmet,
             tabs: [
               Tab(
                 child: Text(
@@ -192,7 +190,7 @@ class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
               ),
             ],
             controller: _tabController,
-            indicatorColor: kLabelColor,
+            indicatorColor: Palette.gourmet,
             indicatorSize: TabBarIndicatorSize.tab,),
 
         ),

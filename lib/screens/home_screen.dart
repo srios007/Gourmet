@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:gourmet/screens/favoritos/favoritos.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:gourmet/components/catapultaScrollView.dart';
 import 'package:gourmet/screens/inicio/inicio.dart';
 import 'package:gourmet/screens/perfil/perfil.dart';
@@ -44,26 +44,23 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         bottomNavigationBar: BottomNavigationBar(
 
-          backgroundColor: kWhiteColor  ,
+          backgroundColor: Palette.white  ,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('imagenes/busqueda.png')),
-              title: Text(''),
               activeIcon: ImageIcon (AssetImage('imagenes/busquedal.png'))
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('imagenes/favoritos.png')),
-              title: Text(''),
               activeIcon: ImageIcon (AssetImage('imagenes/favoritol.png'))
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('imagenes/perfil.png')),
-              title: Text(''),
               activeIcon: ImageIcon (AssetImage('imagenes/perfill.png'))
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor:kLabelColor,
+          selectedItemColor:Palette.gourmet,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 5,

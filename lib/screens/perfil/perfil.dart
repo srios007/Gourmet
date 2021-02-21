@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/components/catapultaScrollView.dart';
+import 'package:gourmet/config/config.dart';
 import 'package:gourmet/config/constants/user_constants.dart';
 import 'package:gourmet/screens/perfil/configuracion.dart';
-import 'package:gourmet/config/constantes.dart';
 import 'package:gourmet/components/container_perfil.dart';
 
 class Perfil extends StatefulWidget {
@@ -16,12 +16,12 @@ class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kWhiteColor,
+      backgroundColor: Palette.white,
       appBar: AppBar(
         elevation: 0.2,
         bottomOpacity: 1,
         automaticallyImplyLeading: false,
-        backgroundColor: kWhiteColor,
+        backgroundColor: Palette.white,
         centerTitle: true,
         title: Stack(
           children: <Widget>[
@@ -30,7 +30,7 @@ class _PerfilState extends State<Perfil> {
               children: <Widget>[
                 Text(
                   'Perfil',
-                  style: GoogleFonts.poppins(textStyle: kTituloPremium),
+                  style: GoogleFonts.poppins(textStyle: Styles.kTituloPremium),
                 ),
               ],
             ),
@@ -76,7 +76,7 @@ class _PerfilState extends State<Perfil> {
                   children: <Widget>[
                     Container(
                       height: 1,
-                      color: kBlackColor.withOpacity(0.1),
+                      color: Palette.black.withOpacity(0.1),
                     ),
                   ],
                 ),
@@ -91,7 +91,7 @@ class _PerfilState extends State<Perfil> {
                       ),
                       IconTheme(
                         data: IconThemeData(
-                          color: kLabelColor,
+                          color: Palette.gourmet,
                         ),
                         child: Container(
                           width: MediaQuery.of(context).size.height * 0.058,
@@ -119,7 +119,7 @@ class _PerfilState extends State<Perfil> {
                                 Text(
                                   "${user.name}",
                                   style: GoogleFonts.poppins(
-                                      textStyle: kLabelPerfil),
+                                      textStyle: Styles.kLabelPerfil),
                                 ),
                               ],
                             ),
@@ -129,7 +129,7 @@ class _PerfilState extends State<Perfil> {
                                 Text(
                                   'Actualizar datos',
                                   style: GoogleFonts.poppins(
-                                      textStyle: kLabelTextStyle),
+                                      textStyle: Styles.kLabelTextStyle),
                                 ),
                               ],
                             )
