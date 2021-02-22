@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/components/catapultaScrollView.dart';
+import 'package:gourmet/components/components.dart';
 import 'package:gourmet/config/config.dart';
 import 'package:gourmet/config/constants/user_constants.dart';
 import 'package:gourmet/screens/perfil/configuracion.dart';
-import 'package:gourmet/components/container_perfil.dart';
 
 class Perfil extends StatefulWidget {
   @override
@@ -13,161 +13,128 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
+  String email = "";
+  String phoneNumber = "";
+
+  /// Regex para validación de mail
+  RegExp emailRegExp = RegExp("[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+      "\\@" +
+      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+      "(" +
+      "\\." +
+      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+      ")+");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.white,
       appBar: AppBar(
-        elevation: 0.2,
-        bottomOpacity: 1,
+        elevation: 0,
+        bottomOpacity: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Palette.white,
         centerTitle: true,
-        title: Stack(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Perfil',
-                  style: GoogleFonts.poppins(textStyle: Styles.kTituloPremium),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.03,
-                      width: MediaQuery.of(context).size.width * 0.07,
-                      child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                builder: (context) => Configuracion(),
-                              ),
-                            );
-                          },
-                          child: Image(
-                            fit: BoxFit.fill,
-                            image: AssetImage('imagenes/configurar.png'),
-                          )),
-                    ),
-                  ],
-                )
-              ],
-            )
-          ],
+        title: Text(
+          'Perfil',
+          style: GoogleFonts.poppins(textStyle: Styles.kTituloPremium),
         ),
+        actions: [
+          CupertinoButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => Configuracion(),
+                  ),
+                );
+              },
+              child: Image(
+                fit: BoxFit.fill,
+                image: AssetImage('imagenes/configurar.png'),
+              )),
+        ],
       ),
       body: CatapultaScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                      height: 1,
-                      color: Palette.black.withOpacity(0.1),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  IconTheme(
+                    data: IconThemeData(
+                      color: Palette.gourmet,
                     ),
-                  ],
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.115,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      IconTheme(
-                        data: IconThemeData(
-                          color: Palette.gourmet,
-                        ),
-                        child: Container(
-                          width: MediaQuery.of(context).size.height * 0.058,
-                          height: MediaQuery.of(context).size.height * 0.058,
-                          decoration: new BoxDecoration(
-                              image: new DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: AssetImage(
-                                    'imagenes/imagenperfil.png',
-                                  ))),
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.11,
-                        width: MediaQuery.of(context).size.height * 0.3,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "${user.name}",
-                                  style: GoogleFonts.poppins(
-                                      textStyle: Styles.kLabelPerfil),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  'Actualizar datos',
-                                  style: GoogleFonts.poppins(
-                                      textStyle: Styles.kLabelTextStyle),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      )
-                    ],
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: new BoxDecoration(
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                'imagenes/imagenperfil.png',
+                              ))),
+                    ),
                   ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                      height: 1,
-                      color: Colors.black.withOpacity(0.1),
-                    )
-                  ],
-                )
-              ],
-            )),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.015,
-            ),
-            Center(
-              child: ContainerPerfil(
-                principal: 'E-mail',
-                title: "${user.email}",
-                imagen: 'imagenes/email.png',
+                  const SizedBox(width: 10),
+                  Container(
+                    width: MediaQuery.of(context).size.width - 92,
+                    child: Text(
+                      "${user.name}",
+                      style: GoogleFonts.poppins(
+                          textStyle: Styles.kLabelPerfil),
+                    ),
+                  )
+                ],
               ),
             ),
-            Center(
-              child: ContainerPerfil(
-                principal: 'Celular',
-                title: "${user.phoneNumber}",
-                imagen: 'imagenes/fechadenacimiento.png',
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 22),
+              child: Container(
+                height: 1,
+                color: Colors.black.withOpacity(0.1),
               ),
             ),
-
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ContainerRegistrar(
+                title: "E-mail",
+                icon: Icons.email_outlined,
+                keyboardType: TextInputType.emailAddress,
+                placeholder: "correo@gourmet.com",
+                iconColor: emailRegExp.hasMatch(email) || email == ""
+                    ? Palette.gourmet
+                    : Palette.red,
+                initialValue: "${user.email}",
+                onChanged: (text) {
+                  setState(() {
+                    email = text;
+                  });
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ContainerRegistrar(
+                title: "Celular",
+                initialValue: "${user.phoneNumber}",
+                icon: Icons.phone_outlined,
+                placeholder: "321 1234567",
+                keyboardType: TextInputType.number,
+                onChanged: (text) {
+                  setState(() {
+                    phoneNumber = text;
+                  });
+                },
+              ),
+            ),
+            Expanded(child: Container()),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: GourmetButton(),
+            )
           ],
         ),
       ),

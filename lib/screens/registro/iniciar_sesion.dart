@@ -20,8 +20,18 @@ class _IniciarSesionState extends State<IniciarSesion> {
   /// Variables inicio de sesión
   String email = "";
   String password = "";
-  ///
+
+  /// Estado de carga del botón
   bool isLoadingBtn = false;
+
+  // Regex para validación de mail
+  RegExp emailRegExp = RegExp("[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+      "\\@" +
+      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+      "(" +
+      "\\." +
+      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+      ")+");
 
 
   @override
@@ -58,6 +68,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 ContainerRegistrar(
                   title: "E-mail",
                   icon: Icons.email_outlined,
+                  iconColor: emailRegExp.hasMatch(email) || email == ""?Palette.gourmet :Palette.red ,
                   placeholder: 'E-mail',
                   onChanged: (text) {
                     setState(() {

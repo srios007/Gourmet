@@ -23,8 +23,17 @@ class _CrearCuentaState extends State<CrearCuenta> {
   String password = "";
   String phoneNumber = "";
 
-  ///
+  /// Estado de carga del botón
   bool isLoadingBtn = false;
+
+  /// Regex para validación de mail
+  RegExp emailRegExp = RegExp("[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+      "\\@" +
+      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+      "(" +
+      "\\." +
+      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+      ")+");
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +88,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                   icon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   placeholder: "correo@gourmet.com",
-
+                  iconColor: emailRegExp.hasMatch(email) || email == ""?Palette.gourmet :Palette.red ,
                   onChanged: (text) {
                     setState(() {
                       email = text;

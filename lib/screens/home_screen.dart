@@ -48,15 +48,21 @@ class _HomeScreenState extends State<HomeScreen> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('imagenes/busqueda.png')),
+              title: Text(""),
               activeIcon: ImageIcon (AssetImage('imagenes/busquedal.png'))
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('imagenes/favoritos.png')),
-              activeIcon: ImageIcon (AssetImage('imagenes/favoritol.png'))
+              activeIcon: ImageIcon (AssetImage('imagenes/favoritol.png')),
+              title: Text(""),
+
+
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('imagenes/perfil.png')),
-              activeIcon: ImageIcon (AssetImage('imagenes/perfill.png'))
+              activeIcon: ImageIcon (AssetImage('imagenes/perfill.png')),
+              title: Text(""),
+
             ),
           ],
           currentIndex: _selectedIndex,
