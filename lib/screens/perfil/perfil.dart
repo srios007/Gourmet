@@ -11,7 +11,10 @@ class Perfil extends StatefulWidget {
   _PerfilState createState() => _PerfilState();
 }
 
-class _PerfilState extends State<Perfil> {
+class _PerfilState extends State<Perfil> with AutomaticKeepAliveClientMixin<Perfil>{
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

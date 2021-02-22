@@ -10,8 +10,10 @@ class Favoritos extends StatefulWidget {
   _FavoritosState createState() => _FavoritosState();
 }
 
-class _FavoritosState extends State<Favoritos> {
-
+class _FavoritosState extends State<Favoritos> with AutomaticKeepAliveClientMixin<Favoritos>{
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

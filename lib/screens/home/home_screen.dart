@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+    with AutomaticKeepAliveClientMixin<HomeScreen> {
   String searchText = "";
   List<Restaurant> restaurantsList = [];
   @override
@@ -21,6 +21,9 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
   }
 
+  @override
+// TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,18 +64,19 @@ class _HomeScreenState extends State<HomeScreen>
         ),
       ),
       body: Scaffold(
-        body: CatapultaScrollView(
-          child: Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, position) {
-                return Caratula(
-                    restaurantName: restaurantsList[position].restaurantName,
-                    qualification: restaurantsList[position].qualification.toString(),
-                    imageUrl: restaurantsList[position].imageUrl);
-              },
-              itemCount: restaurantsList.length,
-            ),
+        body: Container(
+          color: Palette.white,
+          height: MediaQuery.of(context).size.height * 0.73,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            itemBuilder: (context, position) {
+              return Caratula(
+                  restaurantName: restaurantsList[position].restaurantName,
+                  qualification:
+                      restaurantsList[position].qualification.toString(),
+                  imageUrl: restaurantsList[position].imageUrl);
+            },
+            itemCount: restaurantsList.length,
           ),
         ),
       ),

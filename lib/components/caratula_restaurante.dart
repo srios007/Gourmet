@@ -19,93 +19,64 @@ class Caratula extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: onPressed,
-      child: Stack(
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: Container(
-                    height:  MediaQuery.of(context).size.height * 0.225,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-
-                    ),
-                    child: Image.asset('imagenes/$imageUrl',
-                      fit: BoxFit.fill,)
-                ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+      child: CupertinoButton(
+        padding: EdgeInsets.zero,
+        onPressed: onPressed,
+        child: Container(
+          height: 200,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: Palette.skeleton,
+            image: DecorationImage(
+              image: NetworkImage(
+                  imageUrl
               ),
-            ],
+              fit: BoxFit.fill,
+            ),
           ),
-
-          Container(
-            height:  MediaQuery.of(context).size.height * 0.22,
-
+          child: Padding(
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(40, 0, 140, 0),
-                  child: Text(
-                    restaurantName,
-                    style: GoogleFonts.poppins(
-                        textStyle: Styles.kCaratulaStyle
-                    ),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  restaurantName,
+                  style: GoogleFonts.poppins(
+                      textStyle: Styles.kCaratulaStyle
                   ),
                 ),
-                SizedBox(
-                  height: 40,
+
+
+                Row(
+                  children: <Widget>[
+
+                    Icon(
+                      Icons.star,
+                      color: Palette.yellowDark,
+                      size: 20,
+                    ),
+                    Text(
+                        qualification,
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              color: Palette.yellowDark,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400
+                          ),
+                        )
+                    ),
+
+
+                  ],
                 ),
               ],
             ),
-
           ),
-          Column(
-            children: <Widget>[
-              SizedBox(
-                height:  MediaQuery.of(context).size.height * 0.175,
-              ),
-              Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 40,
-                  ),
-                  IconTheme(
-                    data: IconThemeData(
-                      color: Palette.yellowDark,
-                      size: 18
-                    ),
-                    child: ImageIcon(
-                        AssetImage(
-                            'imagenes/estrellas.png'
-                        )
-                    ),
-                  ),
-                  Text(
-                    qualification,
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                          color: Palette.yellowDark,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400
-                      ),
-                    )
-                  ),
-                  SizedBox(
-                    width: 210,
-                  ),
-
-                ],
-              )
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }

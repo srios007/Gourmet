@@ -4,7 +4,7 @@ class Restaurant {
   String address; // Dirección del restaurante
   String schedule; // Horario del restaurante
   String imageUrl; // Foto de portada del restaurante
-  double qualification; // Calificación promedio del restaurante
+  int qualification; // Calificación promedio del restaurante
 
   Restaurant({
     this.id,
