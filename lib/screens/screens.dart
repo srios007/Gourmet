@@ -3,7 +3,7 @@ export 'favoritos/favoritos.dart';
 export 'favoritos/restaurante_premium.dart';
 
 /// INICIO
-export 'inicio/inicio.dart';
+export 'home/home_screen.dart';
 
 /// PERFIL
 export 'perfil/perfil.dart';
@@ -17,5 +17,5 @@ export 'registro/iniciar_sesion.dart';
 export 'splash/splashScreen.dart';
 
 ///
-export 'home_screen.dart';
+export 'nav_screen.dart';
 

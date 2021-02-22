@@ -82,6 +82,11 @@ class _PerfilState extends State<Perfil> {
               },
             ),
             CatapultaOptionRow(
+              text: "Agregar restaurante",
+              iconData: Icons.restaurant,
+              onTap: _showSignOutAlert,
+            ),
+            CatapultaOptionRow(
               text: "Cerrar sesión",
               iconData: Icons.logout,
               onTap: _showSignOutAlert,

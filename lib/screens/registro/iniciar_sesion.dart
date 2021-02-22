@@ -188,7 +188,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
         Navigator.push(
           context,
           CupertinoPageRoute(
-            builder: (context) => HomeScreen(),
+            builder: (context) => NavScreen(),
           ),
         );
         

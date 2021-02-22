@@ -5,12 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/config/config.dart';
 import 'package:gourmet/screens/screens.dart';
 
-class Buscar extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _BuscarState createState() => _BuscarState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _BuscarState extends State<Buscar> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
 
 String searchText = "";
 

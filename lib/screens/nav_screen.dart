@@ -1,23 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gourmet/config/config.dart';
-import 'package:gourmet/screens/favoritos/favoritos.dart';
-import 'package:gourmet/components/catapultaScrollView.dart';
-import 'package:gourmet/screens/inicio/inicio.dart';
-import 'package:gourmet/screens/perfil/perfil.dart';
+import 'package:gourmet/components/components.dart';
+import 'package:gourmet/screens/screens.dart';
 
 
-class HomeScreen extends StatefulWidget {
+class NavScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _NavScreenState createState() => _NavScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NavScreenState extends State<NavScreen> {
 
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    Buscar(),
+    HomeScreen(),
     Favoritos(),
     Perfil(),
   ];

@@ -196,7 +196,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
           Navigator.push(
             context,
             CupertinoPageRoute(
-              builder: (context) => HomeScreen(),
+              builder: (context) => NavScreen(),
             ),
           );
           setState(() {
