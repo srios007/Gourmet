@@ -3,7 +3,6 @@ export 'favoritos/favoritos.dart';
 export 'favoritos/restaurante_premium.dart';
 
 /// INICIO
-export 'inicio/filtros.dart';
 export 'inicio/inicio.dart';
 
 /// PERFIL
