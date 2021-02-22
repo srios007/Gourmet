@@ -5,17 +5,15 @@ import 'package:gourmet/config/config.dart';
 
 class Caratula extends StatelessWidget {
   Caratula({
-    @required this.title,
-    @required this.calificacion,
-    @required this.resena,
-    @required this.image,
+    @required this.restaurantName,
+    @required this.qualification,
+    @required this.imageUrl,
     this.onPressed
 
   });
-  final String title;
-  final String calificacion;
-  final String resena;
-  final String image;
+  final String restaurantName;
+  final String qualification;
+  final String imageUrl;
   final Function onPressed;
 
 
@@ -38,7 +36,7 @@ class Caratula extends StatelessWidget {
                       borderRadius: BorderRadius.circular(14),
 
                     ),
-                    child: Image.asset('imagenes/$image',
+                    child: Image.asset('imagenes/$imageUrl',
                       fit: BoxFit.fill,)
                 ),
               ),
@@ -55,7 +53,7 @@ class Caratula extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(40, 0, 140, 0),
                   child: Text(
-                    title,
+                    restaurantName,
                     style: GoogleFonts.poppins(
                         textStyle: Styles.kCaratulaStyle
                     ),
@@ -90,7 +88,7 @@ class Caratula extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    calificacion,
+                    qualification,
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                           color: Palette.yellowDark,

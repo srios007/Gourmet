@@ -4,14 +4,12 @@ import 'package:gourmet/config/config.dart';
 import 'package:gourmet/components/components.dart';
 import 'package:gourmet/screens/screens.dart';
 
-
 class NavScreen extends StatefulWidget {
   @override
   _NavScreenState createState() => _NavScreenState();
 }
 
 class _NavScreenState extends State<NavScreen> {
-
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
@@ -26,10 +24,8 @@ class _NavScreenState extends State<NavScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -41,30 +37,50 @@ class _NavScreenState extends State<NavScreen> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-
-          backgroundColor: Palette.white  ,
+          backgroundColor: Palette.white,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('imagenes/busqueda.png')),
+              icon: Icon(
+                Icons.search,
+                color: Palette.darkGrey,
+                size: 30,
+              ),
               title: Text(""),
-              activeIcon: ImageIcon (AssetImage('imagenes/busquedal.png'))
+              activeIcon: Icon(
+                Icons.search,
+                color: Palette.gourmet,
+                size: 30,
+              ),
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('imagenes/favoritos.png')),
-              activeIcon: ImageIcon (AssetImage('imagenes/favoritol.png')),
+              icon: Icon(
+                Icons.favorite,
+                color: Palette.darkGrey,
+                size: 30,
+              ),
+              activeIcon: Icon(
+                Icons.favorite,
+                color: Palette.gourmet,
+                size: 30,
+              ),
               title: Text(""),
-
-
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('imagenes/perfil.png')),
-              activeIcon: ImageIcon (AssetImage('imagenes/perfill.png')),
+              icon: Icon(
+                Icons.account_circle,
+                color: Palette.darkGrey,
+                size: 30,
+              ),
+              activeIcon: Icon(
+                Icons.account_circle,
+                color: Palette.gourmet,
+                size: 30,
+              ),
               title: Text(""),
-
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor:Palette.gourmet,
+          selectedItemColor: Palette.gourmet,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 5,
@@ -74,5 +90,3 @@ class _NavScreenState extends State<NavScreen> {
     );
   }
 }
-
-
