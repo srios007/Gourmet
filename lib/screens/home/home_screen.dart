@@ -39,15 +39,18 @@ String searchText = "";
           flexibleSpace: Column(
             children: <Widget>[
               const SizedBox(height: 60),
-              GourmetTextField(
-                initialValue: searchText,
-                icon: Icons.search,
-                iconColor: Palette.gourmet,
-                placeholder: "Buscar",
-                onChanged: (text) {
-                  searchText = text;
-                  //_filterBySearch(text);
-                },
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: GourmetTextField(
+                  initialValue: searchText,
+                  icon: Icons.search,
+                  iconColor: Palette.gourmet,
+                  placeholder: "Buscar",
+                  onChanged: (text) {
+                    searchText = text;
+                    //_filterBySearch(text);
+                  },
+                ),
               ),
             ],
           ),
