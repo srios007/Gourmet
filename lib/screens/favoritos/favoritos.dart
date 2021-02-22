@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/config/config.dart';
-import 'package:gourmet/screens/favoritos/restaurante_premium.dart';
+import 'package:gourmet/screens/screens.dart';
 import 'package:gourmet/components/fade_route.dart';
 
 class Favoritos extends StatefulWidget {

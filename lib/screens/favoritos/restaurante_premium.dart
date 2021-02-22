@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gourmet/components/catapultaScrollView.dart';
+import 'package:gourmet/components/components.dart';
 import 'package:gourmet/config/config.dart';
-import 'package:gourmet/screens/home_screen.dart';
-import 'package:gourmet/components/fade_route.dart';
+import 'package:gourmet/screens/screens.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
@@ -15,14 +14,6 @@ class Premium extends StatefulWidget {
 
 class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
 
-  nextRoute()  {
-    Navigator.push(
-      context,
-      FadeRoute(
-          page:  HomeScreen()
-      ),
-    );
-  }
   String resena = 'Excelente comida, buen servicio.';
   nextLabel(){
     setState(() {
@@ -76,7 +67,7 @@ class _PremiumState extends State<Premium> with SingleTickerProviderStateMixin {
                         width: 15,
                         child: GestureDetector(
                             onTap: (){
-                              nextRoute();
+                              Navigator.pop(context);
                             },
                             child: Image(
                               fit: BoxFit.fill,

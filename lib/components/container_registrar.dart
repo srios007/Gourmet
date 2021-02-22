@@ -58,7 +58,9 @@ class ContainerRegistrar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
+          title == null
+          ? const SizedBox.shrink()
+          :Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
             child: Text(
               title,

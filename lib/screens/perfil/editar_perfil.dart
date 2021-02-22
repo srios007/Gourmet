@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gourmet/components/catapultaScrollView.dart';
 import 'package:gourmet/components/components.dart';
 import 'package:gourmet/config/config.dart';
-import 'package:gourmet/config/constants/user_constants.dart';
 import 'package:gourmet/functions/functions.dart';
 import 'package:gourmet/model/models.dart';
 
