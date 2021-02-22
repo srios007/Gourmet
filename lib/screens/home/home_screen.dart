@@ -39,7 +39,7 @@ String searchText = "";
           flexibleSpace: Column(
             children: <Widget>[
               const SizedBox(height: 60),
-              ContainerRegistrar(
+              GourmetTextField(
                 initialValue: searchText,
                 icon: Icons.search,
                 iconColor: Palette.gourmet,
@@ -69,7 +69,7 @@ String searchText = "";
                     Navigator.push(
                       context,
                       CupertinoPageRoute(
-                        builder: (context) => Premium(),
+                        //builder: (context) => Premium(),
                       ),
                     );
                   },

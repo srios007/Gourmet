@@ -11,15 +11,7 @@ class Favoritos extends StatefulWidget {
 }
 
 class _FavoritosState extends State<Favoritos> {
-  nextRoute()  {
 
-    Navigator.push(
-      context,
-      FadeRoute(
-          page:  Premium()
-      ),
-    );
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +52,7 @@ class _FavoritosState extends State<Favoritos> {
               ),
               GestureDetector(
                 onTap: (){
-                  nextRoute();
+                  ///
                 },child: Stack(
                 children: <Widget>[
                   Row(

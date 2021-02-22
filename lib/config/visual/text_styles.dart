@@ -31,7 +31,7 @@ class Styles {
   );
 
   static TextStyle kLabelRegistrar = TextStyle(
-      color: Palette.black, fontSize: 16, fontWeight: FontWeight.w400);
+      color: Palette.black, fontSize: 16, fontWeight: FontWeight.w500);
 
   static TextStyle kUnderlineLabel = TextStyle(
       decoration: TextDecoration.underline, color: Palette.black, fontSize: 10);

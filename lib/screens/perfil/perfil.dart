@@ -81,11 +81,20 @@ class _PerfilState extends State<Perfil> {
                 );
               },
             ),
-            CatapultaOptionRow(
+            user.isAdmin
+            ?CatapultaOptionRow(
               text: "Agregar restaurante",
               iconData: Icons.restaurant,
-              onTap: _showSignOutAlert,
-            ),
+              onTap: (){
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => AgregarRestaurante(),
+                  ),
+                );
+              },
+            )
+            : const SizedBox.shrink(),
             CatapultaOptionRow(
               text: "Cerrar sesión",
               iconData: Icons.logout,

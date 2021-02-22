@@ -1,13 +1,13 @@
 /// FAVORITOS
 export 'favoritos/favoritos.dart';
-export 'favoritos/restaurante_premium.dart';
 
 /// INICIO
 export 'home/home_screen.dart';
 
 /// PERFIL
 export 'perfil/perfil.dart';
-export 'perfil/editar_perfil.dart';
+export 'perfil/editar_perfil/editar_perfil.dart';
+export 'perfil/agregar_restaurante/agregar_restauramte.dart';
 
 /// REGISTRO
 export 'registro/crear_cuenta.dart';

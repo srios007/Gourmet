@@ -65,7 +65,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 Text('Iniciar Sesión',
                     style: GoogleFonts.poppins(
                         textStyle: Styles.kLabelPrincipalTitleTextStyle)),
-                ContainerRegistrar(
+                GourmetTextField(
                   title: "E-mail",
                   icon: Icons.email_outlined,
                   iconColor: emailRegExp.hasMatch(email) || email == ""?Palette.gourmet :Palette.red ,
@@ -77,7 +77,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                   },
                 ),
                 const SizedBox(height: 16),
-                ContainerRegistrar(
+                GourmetTextField(
                   title: "Contraseña",
                   icon: Icons.lock_outline_rounded,
                   placeholder: 'Contraseña',

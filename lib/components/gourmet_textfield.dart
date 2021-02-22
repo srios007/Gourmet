@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/config/config.dart';
 
 // ignore: must_be_immutable
-class ContainerRegistrar extends StatelessWidget {
-  ContainerRegistrar(
+class GourmetTextField extends StatelessWidget {
+  GourmetTextField(
       {this.title,
       this.placeholder,
       this.keyboardType,
@@ -81,22 +81,21 @@ class ContainerRegistrar extends StatelessWidget {
             ),
             child: Row(
               children: <Widget>[
-                const SizedBox(
-                  width: 23,
-                ),
-                Icon(
-                  icon,
-                  color: iconColor ?? Palette.gourmet,
-                  size: 24.0,
-                ),
+
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 23),
-                  child: Container(
-                    width: 1,
-                    height: 45,
-                    color: Colors.black.withOpacity(0.2),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Icon(
+                    icon,
+                    color: iconColor ?? Palette.gourmet,
+                    size: 24.0,
                   ),
                 ),
+                Container(
+                  width: 1,
+                  height: 45,
+                  color: Colors.black.withOpacity(0.2),
+                ),
+                const SizedBox(width: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -71,7 +71,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                     style: GoogleFonts.poppins(
                         textStyle: Styles.kSubTituloRegistrarUsuario)),
                 const SizedBox(height: 16),
-                ContainerRegistrar(
+                GourmetTextField(
                   title: "Nombre Completo",
                   icon: Icons.perm_identity_outlined,
                   placeholder: "Juan Caro",
@@ -83,7 +83,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                     });
                   },
                 ),
-                ContainerRegistrar(
+                GourmetTextField(
                   title: "E-mail",
                   icon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
@@ -95,7 +95,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                     });
                   },
                 ),
-                ContainerRegistrar(
+                GourmetTextField(
                   title: "Contraseña",
                   isPassword: true,
                   placeholder: "***********",
@@ -106,7 +106,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                     });
                   },
                 ),
-                ContainerRegistrar(
+                GourmetTextField(
                   title: "Celular",
                   icon: Icons.phone_outlined,
                   placeholder: "321 1234567",

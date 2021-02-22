@@ -96,7 +96,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ContainerRegistrar(
+              child: GourmetTextField(
                 title: "E-mail",
                 icon: Icons.email_outlined,
                 keyboardType: TextInputType.emailAddress,
@@ -114,7 +114,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ContainerRegistrar(
+              child: GourmetTextField(
                 title: "Celular",
                 initialValue: "${user.phoneNumber}",
                 icon: Icons.phone_outlined,
