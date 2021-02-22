@@ -7,24 +7,24 @@ class Contactar {
     phoneNumber.replaceAll("+", "");
     String url = "tel:$phoneNumber";
     await canLaunch(url)
-        ? await launch(url)
-        : showAlert(
-            context: context,
-            title: "No pudimos llamar al $phoneNumber.",
-            body: "",
-            actions: [
-              AlertAction(
-                text: "Volver",
-              ),
-              AlertAction(
-                text: "Escribir",
-                isDefaultAction: true,
-                onPressed: () {
-                  escribir(context, phoneNumber);
-                },
-              ),
-            ],
-          );
+    ? await launch(url)
+    : showAlert(
+        context: context,
+        title: "No pudimos llamar al $phoneNumber.",
+        body: "",
+        actions: [
+          AlertAction(
+            text: "Volver",
+          ),
+          AlertAction(
+            text: "Escribir",
+            isDefaultAction: true,
+            onPressed: () {
+              escribir(context, phoneNumber);
+            },
+          ),
+        ],
+      );
   }
 
   static void escribir(BuildContext context, String phoneNumber) async {
@@ -33,23 +33,23 @@ class Contactar {
       phoneNumber = "57$phoneNumber";
     }
     await canLaunch("https://wa.me/$phoneNumber")
-        ? launch("https://wa.me/$phoneNumber")
-        : showAlert(
-            context: context,
-            title: "No pudimos abrir WhatsApp.",
-            body: "",
-            actions: [
-              AlertAction(
-                text: "Volver",
-              ),
-              AlertAction(
-                text: "Llamar",
-                isDefaultAction: true,
-                onPressed: () {
-                  llamar(context, phoneNumber);
-                },
-              ),
-            ],
-          );
+    ? launch("https://wa.me/$phoneNumber")
+    : showAlert(
+        context: context,
+        title: "No pudimos abrir WhatsApp.",
+        body: "",
+        actions: [
+          AlertAction(
+            text: "Volver",
+          ),
+          AlertAction(
+            text: "Llamar",
+            isDefaultAction: true,
+            onPressed: () {
+              llamar(context, phoneNumber);
+            },
+          ),
+        ],
+      );
   }
 }

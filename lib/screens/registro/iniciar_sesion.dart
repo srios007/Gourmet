@@ -143,11 +143,11 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         TextSpan(
                           text: " regístrate",
                           style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Palette.gourmet
-                              )
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Palette.gourmet
+                            )
                           ),
                         ),
                       ],

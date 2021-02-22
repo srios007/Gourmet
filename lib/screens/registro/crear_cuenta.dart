@@ -127,22 +127,23 @@ class _CrearCuentaState extends State<CrearCuenta> {
                         _registerUser();
                       } else {
                         Alert(
-                            context: context,
-                            title: "Crear cuenta",
-                            desc:
-                                "Por favor, rellena los campos para continuar.",
-                            buttons: [
-                              DialogButton(
-                                child: Text("Ok",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                          color: Colors.white, fontSize: 20),
-                                    )),
-                                onPressed: () => Navigator.pop(context),
-                                width: 120,
-                                color: Palette.gourmet,
-                              )
-                            ]).show();
+                          context: context,
+                          title: "Crear cuenta",
+                          desc:
+                              "Por favor, rellena los campos para continuar.",
+                          buttons: [
+                            DialogButton(
+                              child: Text("Ok",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  )),
+                              onPressed: () => Navigator.pop(context),
+                              width: 120,
+                              color: Palette.gourmet,
+                            )
+                          ]
+                        ).show();
                       }
                     },
                     canPush: _canPush(),

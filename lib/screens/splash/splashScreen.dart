@@ -27,8 +27,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     controller.forward();
   }
 
-
-
   @override
   void initState() {
     super.initState();

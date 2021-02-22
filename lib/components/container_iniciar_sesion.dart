@@ -92,7 +92,6 @@ class ContainerIniciarSesion extends StatelessWidget {
           onTap: onTap,
           onEditingComplete: onEditingComplete,
           onFieldSubmitted: onFieldSubmitted,
-
         ),
       ),
     );

@@ -50,7 +50,6 @@ class ContainerRegistrar extends StatelessWidget {
   Function onFieldSubmitted;
   String suffixText;
   var icon;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -114,7 +113,7 @@ class ContainerRegistrar extends StatelessWidget {
                           key: key,
                           enabled: enabled,
                           autofocus: autofocus ?? false,
-                          style: TextStyle(color: Colors.black, fontSize: 16),
+                          style: TextStyle(color: Palette.black, fontSize: 16),
                           keyboardAppearance: Brightness.light,
                           textCapitalization:
                               textCapitalization ?? TextCapitalization.none,
