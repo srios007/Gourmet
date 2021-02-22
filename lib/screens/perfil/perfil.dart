@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gourmet/components/catapultaScrollView.dart';
 import 'package:gourmet/components/components.dart';
 import 'package:gourmet/config/config.dart';
-import 'package:gourmet/config/constants/user_constants.dart';
-import 'package:gourmet/screens/perfil/configuracion.dart';
+import 'package:gourmet/model/models.dart';
+import 'package:gourmet/screens/screens.dart';
 
 class Perfil extends StatefulWidget {
   @override
@@ -13,18 +12,6 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
-  String email = "";
-  String phoneNumber = "";
-
-  /// Regex para validación de mail
-  RegExp emailRegExp = RegExp("[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
-      "\\@" +
-      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-      "(" +
-      "\\." +
-      "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-      ")+");
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,21 +26,6 @@ class _PerfilState extends State<Perfil> {
           'Perfil',
           style: GoogleFonts.poppins(textStyle: Styles.kTituloPremium),
         ),
-        actions: [
-          CupertinoButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => Configuracion(),
-                  ),
-                );
-              },
-              child: Image(
-                fit: BoxFit.fill,
-                image: AssetImage('imagenes/configurar.png'),
-              )),
-        ],
       ),
       body: CatapultaScrollView(
         child: Column(
@@ -83,8 +55,8 @@ class _PerfilState extends State<Perfil> {
                     width: MediaQuery.of(context).size.width - 92,
                     child: Text(
                       "${user.name}",
-                      style: GoogleFonts.poppins(
-                          textStyle: Styles.kLabelPerfil),
+                      style:
+                          GoogleFonts.poppins(textStyle: Styles.kLabelPerfil),
                     ),
                   )
                 ],
@@ -94,50 +66,71 @@ class _PerfilState extends State<Perfil> {
               padding: const EdgeInsets.fromLTRB(0, 30, 0, 22),
               child: Container(
                 height: 1,
-                color: Colors.black.withOpacity(0.1),
+                color: Palette.black.withOpacity(0.1),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ContainerRegistrar(
-                title: "E-mail",
-                icon: Icons.email_outlined,
-                keyboardType: TextInputType.emailAddress,
-                placeholder: "correo@gourmet.com",
-                iconColor: emailRegExp.hasMatch(email) || email == ""
-                    ? Palette.gourmet
-                    : Palette.red,
-                initialValue: "${user.email}",
-                onChanged: (text) {
-                  setState(() {
-                    email = text;
-                  });
-                },
-              ),
+            CatapultaOptionRow(
+              text: "Editar perfil",
+              iconData: Icons.edit,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => EditarPerfil(),
+                  ),
+                );
+              },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ContainerRegistrar(
-                title: "Celular",
-                initialValue: "${user.phoneNumber}",
-                icon: Icons.phone_outlined,
-                placeholder: "321 1234567",
-                keyboardType: TextInputType.number,
-                onChanged: (text) {
-                  setState(() {
-                    phoneNumber = text;
-                  });
-                },
-              ),
+            CatapultaOptionRow(
+              text: "Cerrar sesión",
+              iconData: Icons.logout,
+              onTap: _showSignOutAlert,
             ),
-            Expanded(child: Container()),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: GourmetButton(),
-            )
           ],
         ),
       ),
     );
+  }
+
+  void _showSignOutAlert() {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) => CupertinoActionSheet(
+        title: Text("¿Quieres cerrar sesión?"),
+        actions: <Widget>[
+          CupertinoActionSheetAction(
+            child: Text("Cerrar sesión"),
+            isDestructiveAction: true,
+            onPressed: () {
+              _signOutUser();
+            },
+          ),
+        ],
+        cancelButton: CupertinoActionSheetAction(
+          child: Text("Volver"),
+          isDefaultAction: true,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+
+  void _signOutUser() async {
+    print("⏳ CERRARÉ SESIÓN");
+    Auth().signOut().then((r) {
+      print("✔️ SESIÓN CERRADA");
+      Navigator.push(
+        context,
+        CupertinoPageRoute(
+          builder: (context) => IniciarSesion(),
+        ),
+      );
+      user = User();
+    }).catchError((e) {
+      print("💩️ ERROR AL CERRAR SESIÓN: $e");
+      handleSignOutError(context);
+    });
   }
 }

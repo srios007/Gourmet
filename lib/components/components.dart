@@ -5,3 +5,4 @@ export 'container_registrar.dart';
 export 'filtro_container.dart';
 export 'gourmet_button.dart';
 export 'iniciar_button.dart';
+export 'catapulta_option_row.dart';

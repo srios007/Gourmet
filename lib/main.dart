@@ -24,58 +24,55 @@ Future<void> main() async {
     if (constantsDoc.exists) {
       LogMessage.getSuccess("CONSTANTES");
 
+      /// Datos de contacto a soporte
+      support = Support(
+        voiceNumber: constantsDoc["voiceNumber"],
+        wappNumber: constantsDoc["wappNumber"],
+      );
 
-        /// Datos de contacto a soporte
-        support = Support(
-          voiceNumber: constantsDoc["voiceNumber"],
-          wappNumber: constantsDoc["wappNumber"],
-        );
+      var firebaseUser = await auth.currentUser();
+      if (firebaseUser != null) {
+        print("USUARIO LOGGEADO");
 
-        var firebaseUser = await auth.currentUser();
-        if (firebaseUser != null) {
-          print("USUARIO LOGGEADO");
+        // Usuario loggeado
+        LogMessage.get("USER");
+        firestore
+            .document("users/${firebaseUser.uid}")
+            .get()
+            .then((userDoc) async {
+          LogMessage.getSuccess("USER");
 
-          // Usuario loggeado
-          LogMessage.get("USER");
-          firestore
-              .document("users/${firebaseUser.uid}")
-              .get()
-              .then((userDoc) async {
-            LogMessage.getSuccess("USER");
-
-            if (userDoc.exists) {
-              // Usuario existe en Firestore. Asigna datos del doc descargado.
-              user = User(
-                  id: userDoc.documentID,
-                  name: userDoc.data["name"],
+          if (userDoc.exists) {
+            // Usuario existe en Firestore. Asigna datos del doc descargado.
+            user = User(
+              id: userDoc.documentID,
+              name: userDoc.data["name"],
               email: userDoc.data['email'],
               isAdmin: userDoc.data['isAdmin'],
+              phoneNumber: userDoc.data["phoneNumber"]
+            );
 
-              );
-
-                // El usuario activo puede acceder a la plataforma
-                runApp(
-                  MaterialApp(
-                    debugShowCheckedModeBanner: false,
-                    home: HomeScreen(),
-                  ),
-                );
-
-            }
-          }).catchError((e) {
-            LogMessage.getError("USER", e);
-          });
-        } else {
-          print("SIN SESIÓN ACTIVA");
-          // Usuario no loggeado
-          runApp(
-            MaterialApp(
-              debugShowCheckedModeBanner: false,
-              home: IniciarSesion (),
-            ),
-          );
-        }
-
+            // El usuario activo puede acceder a la plataforma
+            runApp(
+              MaterialApp(
+                debugShowCheckedModeBanner: false,
+                home: HomeScreen(),
+              ),
+            );
+          }
+        }).catchError((e) {
+          LogMessage.getError("USER", e);
+        });
+      } else {
+        print("SIN SESIÓN ACTIVA");
+        // Usuario no loggeado
+        runApp(
+          MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: IniciarSesion(),
+          ),
+        );
+      }
     }
   }).catchError((e) {
     LogMessage.getError("CONSTANTES", e);

@@ -115,4 +115,9 @@ class Styles {
     fontSize: 12,
   );
 
+  static TextStyle configLbl = TextStyle(
+    fontSize: 16,
+    color: Palette.black.withOpacity(0.85),
+  );
+
 }

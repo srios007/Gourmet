@@ -7,8 +7,8 @@ export 'inicio/filtros.dart';
 export 'inicio/inicio.dart';
 
 /// PERFIL
-export 'perfil/configuracion.dart';
 export 'perfil/perfil.dart';
+export 'perfil/editar_perfil.dart';
 
 /// REGISTRO
 export 'registro/crear_cuenta.dart';
