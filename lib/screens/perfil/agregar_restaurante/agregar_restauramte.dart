@@ -220,7 +220,8 @@ class _AgregarRestauranteState extends State<AgregarRestaurante>
       "restaurantName": nombreRestaurante,
       "address": direccion,
       "schedule": horario,
-      "imageUrl": thumbnailURL
+      "imageUrl": thumbnailURL,
+      "qualification": ""
     };
 
     LogMessage.post("RESTAURANT");
