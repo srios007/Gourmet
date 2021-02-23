@@ -15,7 +15,7 @@ class NavScreen extends StatefulWidget {
 class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
-    Favoritos(),
+    FavoriteScreen(),
     Perfil(),
   ];
 

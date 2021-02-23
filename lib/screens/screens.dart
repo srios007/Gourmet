@@ -1,5 +1,5 @@
 /// FAVORITOS
-export 'favoritos/favoritos.dart';
+export 'favoritos/favorite_screen.dart';
 
 /// HOME
 export 'home/home_screen.dart';
