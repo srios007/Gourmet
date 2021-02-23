@@ -4,6 +4,7 @@ import 'package:gourmet/components/components.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/config/config.dart';
 import 'package:gourmet/model/models.dart';
+import 'package:gourmet/screens/home/restaurant_detail.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(130),
+        preferredSize: Size.fromHeight(140),
         child: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen>
               )),
           flexibleSpace: Column(
             children: <Widget>[
-              const SizedBox(height: 90),
+              const SizedBox(height: 100),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: GourmetTextField(
@@ -93,7 +94,18 @@ class _HomeScreenState extends State<HomeScreen>
                           qualification: restaurantsList[position]
                               .qualification
                               .toString(),
-                          imageUrl: restaurantsList[position].imageUrl);
+                          imageUrl: restaurantsList[position].imageUrl,
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) => RestaurantDetail(
+                                restaurant: restaurantsList[position],
+                              ),
+                            ),
+                          );
+                        },
+                      );
                     },
                     itemCount: restaurantsList.length,
                   ),

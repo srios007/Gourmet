@@ -74,7 +74,7 @@ class GourmetTextField extends StatelessWidget {
               boxShadow: <BoxShadow>[
                 BoxShadow(
                     color: Palette.lightGrey,
-                    blurRadius: 3.0,
+                    blurRadius: 6.0,
                     offset: Offset(0.2, 0.7))
               ],
               borderRadius: BorderRadius.circular(14),

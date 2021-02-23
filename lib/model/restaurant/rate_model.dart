@@ -1,7 +1,7 @@
 class Rate {
   String id; // Id de la calificación
   String name; // Nombre de quien califica
-  String rate; // calificaión
+  int rate; // calificaión
   String commentary; // Comentario que hace el usuario
   int created; // Cuando se creó el comentario
 

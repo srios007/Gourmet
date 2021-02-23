@@ -1,8 +1,10 @@
 /// FAVORITOS
 export 'favoritos/favoritos.dart';
 
-/// INICIO
+/// HOME
 export 'home/home_screen.dart';
+export 'home/restaurant_detail.dart';
+export 'home/rate_rstaurant.dart';
 
 /// PERFIL
 export 'perfil/perfil.dart';
