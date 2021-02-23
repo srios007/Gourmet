@@ -42,22 +42,7 @@ class Caratula extends StatelessWidget {
                   restaurantName,
                   style: GoogleFonts.poppins(textStyle: Styles.kCaratulaStyle),
                 ),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.star,
-                      color: Palette.yellowDark,
-                      size: 20,
-                    ),
-                    Text(qualification == "0" ? "N/A" : qualification,
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              color: Palette.yellowDark,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        )),
-                  ],
-                ),
+
               ],
             ),
           ),

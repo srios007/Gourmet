@@ -6,6 +6,8 @@ import 'package:gourmet/config/config.dart';
 import 'package:gourmet/functions/formatear.dart';
 import 'package:gourmet/model/models.dart';
 import 'package:gourmet/screens/home/rate_rstaurant.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class RestaurantDetail extends StatefulWidget {
   Restaurant restaurant;
@@ -21,6 +23,7 @@ class _RestaurantDetailState extends State<RestaurantDetail>
   List<Rate> ratesList = [];
   @override
   void initState() {
+    initializeDateFormatting();
     _tabController = TabController(length: 2, vsync: this);
     _getRates();
     super.initState();
@@ -124,60 +127,95 @@ class _RestaurantDetailState extends State<RestaurantDetail>
           )),
           Expanded(
               child:ratesList.isNotEmpty
-              ?Container(
-                color: Palette.white,
-                height: MediaQuery.of(context).size.height * 0.73,
-                width: MediaQuery.of(context).size.width,
-                child: ListView.builder(
-                  itemBuilder: (context, position) {
-                    return Container(
+              ?Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      color: Palette.white,
                       width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Text(
-                                  ratesList[position].name,
-                                  overflow: TextOverflow.ellipsis,
+                      child: ListView.builder(
+                        itemBuilder: (context, position) {
+                          return Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(14),
+                                  color: Palette.lightGrey
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          width: MediaQuery.of(context).size.width * 0.4,
+                                          child: Text(
+                                            ratesList[position].name,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                        Container(
+                                          width: MediaQuery.of(context).size.width * 0.4,
+                                          child: Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              Format.dateFormattedFromDateTime(
+                                                  DateTime.fromMillisecondsSinceEpoch(
+                                                      ratesList[position].created)),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 16),
+                                      child: Row(
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.star,
+                                            color: Palette.yellowDark,
+                                            size: 20,
+                                          ),
+                                          Text(ratesList[position].rate == 0 ? "N/A" : ratesList[position].rate.toString(),
+                                              style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                    color: Palette.yellowDark,
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w400),
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                                    Text(ratesList[position].commentary)
+                                  ],
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Text(
-                                  Format.dateFormattedFromDateTime(
-                                      DateTime.fromMillisecondsSinceEpoch(
-                                          ratesList[position].created)),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Icon(
-                                Icons.star,
-                                color: Palette.yellowDark,
-                                size: 20,
-                              ),
-                              Text(ratesList[position].rate == 0 ? "N/A" : ratesList[position].rate.toString(),
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Palette.yellowDark,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400),
-                                  )),
-                            ],
-                          ),
-                          Text(ratesList[position].commentary)
-                        ],
+                            ),
+                          );
+                        },
+                        itemCount: ratesList.length,
                       ),
-                    );
-                  },
-                  itemCount: ratesList.length,
-                ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: GourmetButton(onPressed: (){
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => RateRestaurant(
+                            restaurant: widget.restaurant,
+                          ),
+                        ),
+                      );
+                    },title: "Calificar",canPush: true,),
+                  )
+                ],
               )
               : Column(
                 children: [

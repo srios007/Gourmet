@@ -86,7 +86,8 @@ class _RateRestaurantState extends State<RateRestaurant> {
                   image: NetworkImage(widget.restaurant.imageUrl),
                   fit: BoxFit.fill,
                 ),
-              ),          ),
+              ),
+            ),
           ),
           Center(
             child: Text(
@@ -249,19 +250,30 @@ class _RateRestaurantState extends State<RateRestaurant> {
             child: GourmetButton(
               title: 'Enviar calificación',
               isLoading: isLoadingBtn,
+              canPush: rate > 0 ?true:false,
+              onPressed: () {
+                if (rate > 0) {
+                  _makeRate();
+                }
+              },
             ),
           )
         ],
       )),
     );
   }
+
+
+
   void _makeRate() {
+    setState(() {
+      isLoadingBtn = true;
+    });
     Map<String, dynamic> messageMap = ({
       "name": user.name,
       "created": DateTime.now().millisecondsSinceEpoch,
       "rate": rate,
       "commentary": commentary
-
     });
     LogMessage.post("RATE");
     References.restaurants
@@ -270,15 +282,20 @@ class _RateRestaurantState extends State<RateRestaurant> {
         .add(messageMap)
         .then((r) async {
       LogMessage.postSuccess("RATE");
-     Navigator.pop(context);
+      setState(() {
+        isLoadingBtn = false;
+      });
+      Navigator.pop(context);
     }).catchError((e) {
       showBasicAlert(
         context,
         "Hubo un error.",
         "Por favor, intenta más tarde.",
       );
+      setState(() {
+        isLoadingBtn = false;
+      });
       LogMessage.postError("RATE", e);
     });
   }
-
 }

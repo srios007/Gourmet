@@ -7,6 +7,7 @@ import 'package:gourmet/model/models.dart';
 import 'package:gourmet/screens/home/restaurant_detail.dart';
 import 'package:shimmer/shimmer.dart';
 
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -197,6 +198,7 @@ class _HomeScreenState extends State<HomeScreen>
         restaurantsList.clear();
         querySnapshot.documents.forEach((restaurantDoc) {
           restaurantsList.add(Restaurant(
+            id: restaurantDoc.documentID,
             restaurantName: restaurantDoc.data["restaurantName"],
             address: restaurantDoc.data["address"],
             imageUrl: restaurantDoc.data["imageUrl"],
