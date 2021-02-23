@@ -119,8 +119,9 @@ class _CrearCuentaState extends State<CrearCuenta> {
                   },
                 ),
                 Expanded(child: Container()),
+
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.only(top: 8),
                   child: GourmetButton(
                     onPressed: () {
                       if (_canPush()) {
@@ -149,7 +150,44 @@ class _CrearCuentaState extends State<CrearCuenta> {
                     canPush: _canPush(),
                     isLoading: isLoadingBtn,
                   ),
-                )
+                ),
+                CupertinoButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => IniciarSesion(),
+                        ),
+                      );
+                    },
+                    padding: EdgeInsets.zero,
+                    child:RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: "¿Ya tienes una cuenta?,",
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w300,
+                                color: Palette.gourmet
+                            )
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: " inicia sesión",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Palette.gourmet
+                                )
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                ),
+
               ],
             ),
           ),

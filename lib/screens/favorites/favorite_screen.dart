@@ -50,7 +50,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           : restaurantsList.isNotEmpty
               ? Container(
                   color: Palette.white,
-                  height: MediaQuery.of(context).size.height * 0.73,
                   width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                     itemBuilder: (context, position) {
@@ -78,7 +77,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                 )
               : Container(
                   color: Palette.white,
-                  height: MediaQuery.of(context).size.height * 0.73,
                   width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.all(16),
                   child: Center(
@@ -95,7 +93,6 @@ class _FavoriteScreenState extends State<FavoriteScreen>
   Widget _loadingLayout() {
     return Container(
       color: Palette.white,
-      height: MediaQuery.of(context).size.height * 0.73,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         itemBuilder: (context, position) {
@@ -145,7 +142,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
             ),
           );
         },
-        itemCount: 3,
+        itemCount: 5,
       ),
     );
   }

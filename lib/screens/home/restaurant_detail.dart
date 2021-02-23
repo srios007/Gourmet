@@ -104,6 +104,7 @@ class _RestaurantDetailState extends State<RestaurantDetail>
                 color: Palette.gourmet,
               ),
               onPressed: () {
+
                 _addFavoriteRestaurant();
               }
             ),
@@ -366,6 +367,8 @@ class _RestaurantDetailState extends State<RestaurantDetail>
       LogMessage.getError("RATES", e);
     });
   }
+
+
 
   void _addFavoriteRestaurant() {
     Map<String, dynamic> restaurantDoc = {

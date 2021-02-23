@@ -28,29 +28,34 @@ class _NavScreenState extends State<NavScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      initialIndex: widget.index,
-      length: _icons.length,
-      child: Scaffold(
-        body: TabBarView(
-          physics: NeverScrollableScrollPhysics(),
-          children: _screens,
-        ),
-        bottomNavigationBar: Container(
-          padding: const EdgeInsets.only(bottom: 12.0),
-          decoration: BoxDecoration(
-            color: Palette.white,
-            border:
-            Border(top: BorderSide(color: Palette.black.withOpacity(0.15))),
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: DefaultTabController(
+        initialIndex: widget.index,
+        length: _icons.length,
+        child: Scaffold(
+          body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
+            children: _screens,
           ),
-          child: GourmetTabBar(
-            icons: _icons,
-            selectedIndex: widget.index,
-            onTap: (index) {
-              setState(() {
-                widget.index = index;
-              });
-            },
+          bottomNavigationBar: Container(
+            padding: const EdgeInsets.only(bottom: 12.0),
+            decoration: BoxDecoration(
+              color: Palette.white,
+              border:
+              Border(top: BorderSide(color: Palette.black.withOpacity(0.15))),
+            ),
+            child: GourmetTabBar(
+              icons: _icons,
+              selectedIndex: widget.index,
+              onTap: (index) {
+                setState(() {
+                  widget.index = index;
+                });
+              },
+            ),
           ),
         ),
       ),
