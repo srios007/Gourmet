@@ -7,7 +7,6 @@ import 'package:gourmet/model/models.dart';
 import 'package:gourmet/screens/home/restaurant_detail.dart';
 import 'package:shimmer/shimmer.dart';
 
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -51,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen>
               )),
           flexibleSpace: Column(
             children: <Widget>[
-              const SizedBox(height: 100),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.11),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: GourmetTextField(
@@ -75,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
       ),
       body: Scaffold(
-        body: RefreshIndicator(
+          body: RefreshIndicator(
         key: _refreshIndicatorKey,
         onRefresh: _getRestaurants,
         color: Palette.gourmet,
@@ -83,49 +82,46 @@ class _HomeScreenState extends State<HomeScreen>
         child: isLoading
             ? _loadingLayout()
             : restaurantsList.isNotEmpty
-              ? Container(
-                  color: Palette.white,
-                  height: MediaQuery.of(context).size.height * 0.73,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    itemBuilder: (context, position) {
-                      return Caratula(
+                ? Container(
+                    color: Palette.white,
+                    height: MediaQuery.of(context).size.height * 0.73,
+                    width: MediaQuery.of(context).size.width,
+                    child: ListView.builder(
+                      itemBuilder: (context, position) {
+                        return Caratula(
                           restaurantName:
                               restaurantsList[position].restaurantName,
                           qualification: restaurantsList[position]
                               .qualification
                               .toString(),
                           imageUrl: restaurantsList[position].imageUrl,
-                        onPressed: (){
-                          Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                              builder: (context) => RestaurantDetail(
-                                restaurant: restaurantsList[position],
-                                isFavorite: false,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                builder: (context) => RestaurantDetail(
+                                  restaurant: restaurantsList[position],
+                                  isFavorite: false,
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                    itemCount: restaurantsList.length,
-                  ),
-                )
-              : Container(
-                  color: Palette.white,
-                  height: MediaQuery.of(context).size.height * 0.73,
-                  width: MediaQuery.of(context).size.width,
-                  child: Center(
-                      child: Text(
-                          'Sin resultados.\nNo hay restaurantes para mostrar.',
-                        textAlign: TextAlign.center,
-                        style:  TextStyle(color: Palette.black, fontSize: 16),
-                      )
+                            );
+                          },
+                        );
+                      },
+                      itemCount: restaurantsList.length,
+                    ),
                   )
-      ),
-        )
-      ),
+                : Container(
+                    color: Palette.white,
+                    height: MediaQuery.of(context).size.height * 0.73,
+                    width: MediaQuery.of(context).size.width,
+                    child: Center(
+                        child: Text(
+                      'Sin resultados.\nNo hay restaurantes para mostrar.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Palette.black, fontSize: 16),
+                    ))),
+      )),
     );
   }
 
