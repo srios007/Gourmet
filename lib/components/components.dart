@@ -5,3 +5,4 @@ export 'gourmet_textfield.dart';
 export 'gourmet_button.dart';
 export 'iniciar_button.dart';
 export 'catapulta_option_row.dart';
+export 'gourmet_tab_bar.dart';

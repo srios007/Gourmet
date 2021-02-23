@@ -4,18 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/config/config.dart';
 
 class Caratula extends StatelessWidget {
-  Caratula({
-    @required this.restaurantName,
-    @required this.qualification,
-    @required this.imageUrl,
-    this.onPressed
-
-  });
+  Caratula(
+      {@required this.restaurantName,
+      @required this.qualification,
+      @required this.imageUrl,
+      this.onPressed});
   final String restaurantName;
   final String qualification;
   final String imageUrl;
   final Function onPressed;
-
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +28,7 @@ class Caratula extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
             color: Palette.skeleton,
             image: DecorationImage(
-              image: NetworkImage(
-                  imageUrl
-              ),
+              image: NetworkImage(imageUrl),
               fit: BoxFit.fill,
             ),
           ),
@@ -45,32 +40,22 @@ class Caratula extends StatelessWidget {
               children: [
                 Text(
                   restaurantName,
-                  style: GoogleFonts.poppins(
-                      textStyle: Styles.kCaratulaStyle
-                  ),
+                  style: GoogleFonts.poppins(textStyle: Styles.kCaratulaStyle),
                 ),
-
-
                 Row(
                   children: <Widget>[
-
                     Icon(
                       Icons.star,
                       color: Palette.yellowDark,
                       size: 20,
                     ),
-                    Text(
-                        qualification,
+                    Text(qualification == "0" ? "N/A" : qualification,
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                               color: Palette.yellowDark,
                               fontSize: 14,
-                              fontWeight: FontWeight.w400
-                          ),
-                        )
-                    ),
-
-
+                              fontWeight: FontWeight.w400),
+                        )),
                   ],
                 ),
               ],

@@ -55,7 +55,7 @@ Future<void> main() async {
             runApp(
               MaterialApp(
                 debugShowCheckedModeBanner: false,
-                home: NavScreen(),
+                home: NavScreen(index: 0),
               ),
             );
           }

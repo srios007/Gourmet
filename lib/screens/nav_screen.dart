@@ -5,86 +5,53 @@ import 'package:gourmet/components/components.dart';
 import 'package:gourmet/screens/screens.dart';
 
 class NavScreen extends StatefulWidget {
+  NavScreen({this.index = 0});
+  int index;
+
   @override
   _NavScreenState createState() => _NavScreenState();
 }
 
 class _NavScreenState extends State<NavScreen> {
-  int _selectedIndex = 0;
-
-  static List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> _screens = [
     HomeScreen(),
     Favoritos(),
     Perfil(),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final List<IconData> _icons = const [
+    Icons.search,
+    Icons.favorite,
+    Icons.account_circle,
+  ];
+
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
+    return DefaultTabController(
+      initialIndex: widget.index,
+      length: _icons.length,
       child: Scaffold(
-        body: CatapultaScrollView(
-          child: Center(
-            child: _widgetOptions.elementAt(_selectedIndex),
-          ),
+        body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
+          children: _screens,
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Palette.white,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                color: Palette.darkGrey,
-                size: 30,
-              ),
-              title: Text(""),
-              activeIcon: Icon(
-                Icons.search,
-                color: Palette.gourmet,
-                size: 30,
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.favorite,
-                color: Palette.darkGrey,
-                size: 30,
-              ),
-              activeIcon: Icon(
-                Icons.favorite,
-                color: Palette.gourmet,
-                size: 30,
-              ),
-              title: Text(""),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.account_circle,
-                color: Palette.darkGrey,
-                size: 30,
-              ),
-              activeIcon: Icon(
-                Icons.account_circle,
-                color: Palette.gourmet,
-                size: 30,
-              ),
-              title: Text(""),
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Palette.gourmet,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 5,
-          onTap: _onItemTapped,
+        bottomNavigationBar: Container(
+          padding: const EdgeInsets.only(bottom: 12.0),
+          decoration: BoxDecoration(
+            color: Palette.white,
+            border:
+            Border(top: BorderSide(color: Palette.black.withOpacity(0.15))),
+          ),
+          child: GourmetTabBar(
+            icons: _icons,
+            selectedIndex: widget.index,
+            onTap: (index) {
+              setState(() {
+                widget.index = index;
+              });
+            },
+          ),
         ),
       ),
     );
