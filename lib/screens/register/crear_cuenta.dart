@@ -39,156 +39,157 @@ class _CrearCuentaState extends State<CrearCuenta> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: CatapultaScrollView(
+      body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Container(
-            height: MediaQuery.of(context).size.height - kToolbarHeight,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CupertinoNavigationBarBackButton(
-                      color: Palette.gourmet,
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Image.asset("imagenes/logoInicio.png"),
-                ),
-                Text(
-                  'Bienvenido a Gourmet',
-                  style:
-                      GoogleFonts.poppins(textStyle: Styles.kTituloRegistrarUsuario),
-                ),
-                Text('Regístrate',
-                    style: GoogleFonts.poppins(
-                        textStyle: Styles.kSubTituloRegistrarUsuario)),
-                const SizedBox(height: 16),
-                GourmetTextField(
-                  title: "Nombre Completo",
-                  icon: Icons.perm_identity_outlined,
-                  placeholder: "Juan Caro",
-                  keyboardType: TextInputType.name,
-                  textCapitalization: TextCapitalization.words,
-                  onChanged: (text) {
-                    setState(() {
-                      name = text;
-                    });
-                  },
-                ),
-                GourmetTextField(
-                  title: "E-mail",
-                  icon: Icons.email_outlined,
-                  keyboardType: TextInputType.emailAddress,
-                  placeholder: "correo@gourmet.com",
-                  iconColor: emailRegExp.hasMatch(email) || email == ""?Palette.gourmet :Palette.red ,
-                  onChanged: (text) {
-                    setState(() {
-                      email = text;
-                    });
-                  },
-                ),
-                GourmetTextField(
-                  title: "Contraseña",
-                  isPassword: true,
-                  placeholder: "***********",
-                  icon: Icons.lock_outline_rounded,
-                  onChanged: (text) {
-                    setState(() {
-                      password = text;
-                    });
-                  },
-                ),
-                GourmetTextField(
-                  title: "Celular",
-                  icon: Icons.phone_outlined,
-                  placeholder: "321 1234567",
-                  keyboardType: TextInputType.number,
-
-                  onChanged: (text) {
-                    setState(() {
-                      phoneNumber = text;
-                    });
-                  },
-                ),
-                Expanded(child: Container()),
-
-                Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: GourmetButton(
-                    onPressed: () {
-                      if (_canPush()) {
-                        _registerUser();
-                      } else {
-                        Alert(
-                          context: context,
-                          title: "Crear cuenta",
-                          desc:
-                              "Por favor, rellena los campos para continuar.",
-                          buttons: [
-                            DialogButton(
-                              child: Text("Ok",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Colors.white, fontSize: 20),
-                                  )),
-                              onPressed: () => Navigator.pop(context),
-                              width: 120,
-                              color: Palette.gourmet,
-                            )
-                          ]
-                        ).show();
-                      }
-                    },
-                    canPush: _canPush(),
-                    isLoading: isLoadingBtn,
-                  ),
-                ),
-                CupertinoButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (context) => IniciarSesion(),
-                        ),
-                      );
-                    },
-                    padding: EdgeInsets.zero,
-                    child:RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: "¿Ya tienes una cuenta?,",
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                                color: Palette.gourmet
-                            )
-                        ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: " inicia sesión",
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Palette.gourmet
-                                )
-                            ),
-                          ),
-                        ],
+            child: CatapultaScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CupertinoNavigationBarBackButton(
+                        color: Palette.gourmet,
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
-                    )
-                ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Image.asset("imagenes/logoInicio.png"),
+                  ),
+                  Text(
+                    'Bienvenido a Gourmet',
+                    style:
+                        GoogleFonts.poppins(textStyle: Styles.kTituloRegistrarUsuario),
+                  ),
+                  Text('Regístrate',
+                      style: GoogleFonts.poppins(
+                          textStyle: Styles.kSubTituloRegistrarUsuario)),
+                  const SizedBox(height: 16),
+                  GourmetTextField(
+                    title: "Nombre Completo",
+                    icon: Icons.perm_identity_outlined,
+                    placeholder: "Juan Caro",
+                    keyboardType: TextInputType.name,
+                    textCapitalization: TextCapitalization.words,
+                    onChanged: (text) {
+                      setState(() {
+                        name = text;
+                      });
+                    },
+                  ),
+                  GourmetTextField(
+                    title: "E-mail",
+                    icon: Icons.email_outlined,
+                    keyboardType: TextInputType.emailAddress,
+                    placeholder: "correo@gourmet.com",
+                    iconColor: emailRegExp.hasMatch(email) || email == ""?Palette.gourmet :Palette.red ,
+                    onChanged: (text) {
+                      setState(() {
+                        email = text;
+                      });
+                    },
+                  ),
+                  GourmetTextField(
+                    title: "Contraseña",
+                    isPassword: true,
+                    placeholder: "***********",
+                    icon: Icons.lock_outline_rounded,
+                    onChanged: (text) {
+                      setState(() {
+                        password = text;
+                      });
+                    },
+                  ),
+                  GourmetTextField(
+                    title: "Celular",
+                    icon: Icons.phone_outlined,
+                    placeholder: "321 1234567",
+                    keyboardType: TextInputType.number,
 
-              ],
+                    onChanged: (text) {
+                      setState(() {
+                        phoneNumber = text;
+                      });
+                    },
+                  ),
+                  Expanded(child: Container()),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: GourmetButton(
+                      onPressed: () {
+                        if (_canPush()) {
+                          _registerUser();
+                        } else {
+                          Alert(
+                            context: context,
+                            title: "Crear cuenta",
+                            desc:
+                                "Por favor, rellena los campos para continuar.",
+                            buttons: [
+                              DialogButton(
+                                child: Text("Ok",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                    )),
+                                onPressed: () => Navigator.pop(context),
+                                width: 120,
+                                color: Palette.gourmet,
+                              )
+                            ]
+                          ).show();
+                        }
+                      },
+                      canPush: _canPush(),
+                      isLoading: isLoadingBtn,
+                    ),
+                  ),
+                  CupertinoButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => IniciarSesion(),
+                          ),
+                        );
+                      },
+                      padding: EdgeInsets.zero,
+                      child:RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          text: "¿Ya tienes una cuenta?,",
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w300,
+                                  color: Palette.gourmet
+                              )
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: " inicia sesión",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Palette.gourmet
+                                  )
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                  ),
+
+                ],
+              ),
             ),
           ),
         ),
