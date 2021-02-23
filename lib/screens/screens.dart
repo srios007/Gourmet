@@ -1,19 +1,19 @@
 /// FAVORITOS
-export 'favoritos/favorite_screen.dart';
+export 'favorites/favorite_screen.dart';
 
 /// HOME
 export 'home/home_screen.dart';
 export 'home/restaurant_detail.dart';
-export 'home/rate_rstaurant.dart';
+export 'home/rate_restaurant.dart';
 
 /// PERFIL
-export 'perfil/perfil.dart';
-export 'perfil/editar_perfil/editar_perfil.dart';
-export 'perfil/agregar_restaurante/agregar_restauramte.dart';
+export 'profile/perfil.dart';
+export 'profile/editar_perfil/editar_perfil.dart';
+export 'profile/agregar_restaurante/agregar_restauramte.dart';
 
 /// REGISTRO
-export 'registro/crear_cuenta.dart';
-export 'registro/iniciar_sesion.dart';
+export 'register/crear_cuenta.dart';
+export 'register/iniciar_sesion.dart';
 
 /// SPLASH
 export 'splash/splashScreen.dart';

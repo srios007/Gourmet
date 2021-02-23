@@ -102,6 +102,7 @@ class _HomeScreenState extends State<HomeScreen>
                             CupertinoPageRoute(
                               builder: (context) => RestaurantDetail(
                                 restaurant: restaurantsList[position],
+                                isFavorite: false,
                               ),
                             ),
                           );

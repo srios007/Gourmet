@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/components/components.dart';
 import 'package:gourmet/config/config.dart';
 import 'package:gourmet/model/models.dart';
@@ -12,18 +13,33 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen>
-    with AutomaticKeepAliveClientMixin<FavoriteScreen> {
+ //   with AutomaticKeepAliveClientMixin<FavoriteScreen>
+{
   List<Restaurant> restaurantsList = [];
   bool isLoading = false;
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
       new GlobalKey<RefreshIndicatorState>();
 
   @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
+  void initState() {
+    _getRestaurants();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          bottomOpacity: 0,
+          automaticallyImplyLeading: false,
+          backgroundColor: Palette.white,
+          centerTitle: true,
+          title: Text(
+            'Favoritos',
+            style: GoogleFonts.poppins(textStyle: Styles.kTituloPremium),
+          ),
+        ),
         body: RefreshIndicator(
       key: _refreshIndicatorKey,
       onRefresh: _getRestaurants,
@@ -50,6 +66,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                             CupertinoPageRoute(
                               builder: (context) => RestaurantDetail(
                                 restaurant: restaurantsList[position],
+                                isFavorite: true,
                               ),
                             ),
                           );
@@ -63,11 +80,14 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                   color: Palette.white,
                   height: MediaQuery.of(context).size.height * 0.73,
                   width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(16),
                   child: Center(
                       child: Text(
-                    'Sin resultados.\nNo hay restaurantes para mostrar.',
+                    'Sin favoritos.\nNo hay restaurantes para mostrar.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Palette.black, fontSize: 16),
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(color: Palette.black, fontSize: 16)
+                    ),
                   ))),
     ));
   }
@@ -135,14 +155,18 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       isLoading = true;
     });
     LogMessage.get("RESTAURANT");
-    References.restaurants.getDocuments().then((querySnapshot) {
+    References.users
+        .document(user.id)
+        .collection("favorites")
+        .snapshots()
+        .listen((querySnapshot) {
       LogMessage.getSuccess("RESTAURANT");
 
       if (querySnapshot.documents.isNotEmpty) {
         restaurantsList.clear();
         querySnapshot.documents.forEach((restaurantDoc) {
           restaurantsList.add(Restaurant(
-            id: restaurantDoc.documentID,
+            id: restaurantDoc.data["id"],
             restaurantName: restaurantDoc.data["restaurantName"],
             address: restaurantDoc.data["address"],
             imageUrl: restaurantDoc.data["imageUrl"],
@@ -154,7 +178,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
       setState(() {
         isLoading = false;
       });
-    }).catchError((e) {
+    }).onError((e) {
       LogMessage.getError("RESTAURANT", e);
     });
   }

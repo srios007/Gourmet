@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:gourmet/config/config.dart';
-import '../registro/iniciar_sesion.dart';
 import 'package:flutter/material.dart';
+
+import '../screens.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

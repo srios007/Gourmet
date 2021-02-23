@@ -4,14 +4,16 @@ import 'package:gourmet/components/components.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gourmet/config/config.dart';
 import 'package:gourmet/functions/formatear.dart';
+import 'package:gourmet/functions/functions.dart';
 import 'package:gourmet/model/models.dart';
-import 'package:gourmet/screens/home/rate_rstaurant.dart';
+import 'package:gourmet/screens/home/rate_restaurant.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 class RestaurantDetail extends StatefulWidget {
   Restaurant restaurant;
-  RestaurantDetail({Key key, this.restaurant}) : super(key: key);
+  bool isFavorite;
+  RestaurantDetail({Key key, this.restaurant,this.isFavorite}) : super(key: key);
 
   @override
   _RestaurantDetailState createState() => _RestaurantDetailState();
@@ -85,6 +87,29 @@ class _RestaurantDetailState extends State<RestaurantDetail>
             indicatorColor: Palette.gourmet,
             indicatorSize: TabBarIndicatorSize.tab,
           ),
+          actions: !widget.isFavorite
+          ?[
+            CupertinoButton(
+                child: Icon(
+                  Icons.favorite_border,
+                  color: Palette.gourmet,
+                ),
+                onPressed: () {
+                  _removeLiveAudience();
+                }
+            ),
+            CupertinoButton(
+              child: Icon(
+                Icons.favorite,
+                color: Palette.gourmet,
+              ),
+              onPressed: () {
+                _addFavoriteRestaurant();
+              }
+            ),
+
+          ]
+          :[],
         ),
       ),
       body: TabBarView(
@@ -115,7 +140,10 @@ class _RestaurantDetailState extends State<RestaurantDetail>
                   Text("Calificación promedio",
                       style:
                           GoogleFonts.poppins(textStyle: Styles.kPremiumStyle)),
-                  Text(getCalificacion() == 0 ?"N/A":getCalificacion().toString() ,
+                  Text(
+                      getCalificacion() == 0
+                          ? "N/A"
+                          : getCalificacion().toString(),
                       style: GoogleFonts.poppins(
                           textStyle: Styles.kPremiumStyle2)),
                 ],
@@ -133,7 +161,8 @@ class _RestaurantDetailState extends State<RestaurantDetail>
                           child: ListView.builder(
                             itemBuilder: (context, position) {
                               return Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 10),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width,
                                   decoration: BoxDecoration(
@@ -219,7 +248,8 @@ class _RestaurantDetailState extends State<RestaurantDetail>
                                           ),
                                         ),
                                         Text(
-                                          ratesList[position].commentary ?? "N/A",
+                                          ratesList[position].commentary ??
+                                              "N/A",
                                           style: GoogleFonts.poppins(
                                               textStyle: TextStyle(
                                             color: Palette.black,
@@ -238,7 +268,7 @@ class _RestaurantDetailState extends State<RestaurantDetail>
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: GourmetButton(
-                          onPressed: () async{
+                          onPressed: () async {
                             final result = await Navigator.push(
                               context,
                               CupertinoPageRoute(
@@ -301,7 +331,7 @@ class _RestaurantDetailState extends State<RestaurantDetail>
         rateTemp += element.rate;
         print(rateTemp);
       });
-      if(rateTemp != 0) {
+      if (rateTemp != 0) {
         rateTemp = (rateTemp ~/ ratesList.length).toInt();
       }
     });
@@ -334,6 +364,71 @@ class _RestaurantDetailState extends State<RestaurantDetail>
       });
     }).onError((e) {
       LogMessage.getError("RATES", e);
+    });
+  }
+
+  void _addFavoriteRestaurant() {
+    Map<String, dynamic> restaurantDoc = {
+      "id": widget.restaurant.id,
+      "restaurantName": widget.restaurant.restaurantName,
+      "address": widget.restaurant.address,
+      "schedule": widget.restaurant.schedule,
+      "imageUrl": widget.restaurant.imageUrl,
+      "qualification": 0
+    };
+
+    LogMessage.post("RESTAURANT");
+    References.users
+        .document(user.id)
+        .collection("favorites")
+        .add(restaurantDoc)
+        .then((value) {
+      LogMessage.postSuccess("RESTAURANT");
+
+      showBasicAlert(
+        context,
+        "Favoritos",
+        "El restaurante ha sido agreado a favoritos.",
+      );
+    }).catchError((e) {
+      LogMessage.postError("RESTAURANT", e);
+      showBasicAlert(
+        context,
+        "Hubo un error.",
+        "El restaurante no pudo ser agregado a favoritos.",
+      );
+    });
+  }
+  void _removeLiveAudience() {
+    print("⏳ ELIMINARÉ FAVORITO");
+    References.users
+        .document(user.id)
+        .collection("favorites")
+        .where("id", isEqualTo: widget.restaurant.id)
+        .getDocuments()
+        .then((restaurantDoc) {
+      restaurantDoc.documents.forEach((favoriteDoc) {
+        References.users
+            .document(user.id)
+            .collection("favorites")
+            .document(favoriteDoc.documentID)
+            .delete()
+            .then((value) {
+          print("✔ FAVORITO ELIMINADO");
+          showBasicAlert(
+            context,
+            "Favoritos",
+            "El restaurante ha sido eliminado de favoritos.",
+          );
+        }).catchError((e) {
+          showBasicAlert(
+            context,
+            "Favoritos.",
+            "No tienes agregado este restaurante en tu pestaña de favoritos.",
+          );
+          print("💩️ ERROR AL ELIMINAR FAVORITO: $e");
+        });
+      });
     });
   }
 }
