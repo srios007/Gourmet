@@ -16,7 +16,7 @@ class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     FavoriteScreen(),
-    Perfil(),
+    ProfileScreen(),
   ];
 
   final List<IconData> _icons = const [

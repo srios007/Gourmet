@@ -51,7 +51,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Image.asset("imagenes/logoInicio.png"),
+                  child: Image.asset("images/logoInicio.png"),
                 ),
                 Text(
                   'Bienvenido a Gourmet',

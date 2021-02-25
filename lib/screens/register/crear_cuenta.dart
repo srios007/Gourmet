@@ -60,7 +60,7 @@ class _CrearCuentaState extends State<CrearCuenta> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Image.asset("imagenes/logoInicio.png"),
+                    child: Image.asset("images/logoInicio.png"),
                   ),
                   Text(
                     'Bienvenido a Gourmet',

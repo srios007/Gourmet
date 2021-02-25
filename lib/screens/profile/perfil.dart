@@ -6,12 +6,12 @@ import 'package:gourmet/config/config.dart';
 import 'package:gourmet/model/models.dart';
 import 'package:gourmet/screens/screens.dart';
 
-class Perfil extends StatefulWidget {
+class ProfileScreen extends StatefulWidget {
   @override
-  _PerfilState createState() => _PerfilState();
+  _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-class _PerfilState extends State<Perfil> with AutomaticKeepAliveClientMixin<Perfil>{
+class _ProfileScreenState extends State<ProfileScreen> with AutomaticKeepAliveClientMixin<ProfileScreen>{
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
@@ -49,7 +49,7 @@ class _PerfilState extends State<Perfil> with AutomaticKeepAliveClientMixin<Perf
                           image: new DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                'imagenes/imagenperfil.png',
+                                'images/imagenperfil.png',
                               ))),
                     ),
                   ),

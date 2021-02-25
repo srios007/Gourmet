@@ -71,7 +71,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                           image: new DecorationImage(
                               fit: BoxFit.fill,
                               image: AssetImage(
-                                'imagenes/imagenperfil.png',
+                                'images/imagenperfil.png',
                               ))),
                     ),
                   ),

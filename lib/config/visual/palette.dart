@@ -13,5 +13,4 @@ class Palette {
   static const skeleton = Color(0xFFEAEAEA);
   static const bgColor = Color(0xFFF7F7F9);
 
-
 }
